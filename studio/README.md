@@ -1,9 +1,19 @@
-# Sanity Clean Content Studio
+# Sanity Studio for Artists for Humanity Open Studios
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+Sanity Studio CMS for Artists for Humanity's virtual open studios.
 
-Now you can do the following things:
+[Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+# Getting Started
+
+1. Install dependencies
+
+```sh
+npm install
+```
+
+1. Start the studio, and access it in [http://localhost:3333](http://localhost:3333).
+
+```sh
+npm start
+```
