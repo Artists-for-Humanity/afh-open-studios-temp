@@ -1,7 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder';
 
-export default () => {
-  const x = S.list()
+export default () =>
+  S.list()
     .title('Content')
     .items([
       S.listItem()
@@ -14,6 +14,3 @@ export default () => {
         (listItem) => !['landingPage'].includes(listItem.getId()),
       ),
     ]);
-
-  return x;
-};
