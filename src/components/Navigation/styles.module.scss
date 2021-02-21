@@ -1,0 +1,17 @@
+@import 'abstracts';
+
+.container {
+  @include padding($sp-sm);
+  position: absolute;
+
+  top: 0;
+  width: 100%;
+}
+
+.links {
+  @include flex(row, flex-end);
+
+  li {
+    margin-left: $sp-sm;
+  }
+}
