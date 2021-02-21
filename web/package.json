@@ -6,7 +6,8 @@
     "start": "next dev -p 8080",
     "build": "next build",
     "serve": "next start",
-    "temples": "temples"
+    "temples": "temples",
+    "deploy": "vercel"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "sass": "^1.32.8"
   },
   "devDependencies": {
-    "temples": "^2.1.0"
+    "temples": "^2.1.0",
+    "vercel": "^21.2.3"
   }
 }

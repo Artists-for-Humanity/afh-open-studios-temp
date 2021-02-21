@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "postinstall": "lerna bootstrap",
+    "deploy": "lerna run deploy",
     "start": "lerna run start --parallel"
   },
   "repository": {
