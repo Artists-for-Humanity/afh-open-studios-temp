@@ -1,14 +1,18 @@
 import React from 'react';
+
+import { Link } from '@components';
 import s from './styles.module.scss';
 
-const Navigation = (props) => {
+const Navigation = ({ links }) => {
   return (
     <header className={s.container}>
       <nav>
         <ul className={s.links}>
-          <li>EpiCenter</li>
-          <li>Gallery</li>
-          <li>Studios</li>
+          {links.map(({ href, label }, i) => (
+            <li key={i}>
+              <Link href={href}>{label}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

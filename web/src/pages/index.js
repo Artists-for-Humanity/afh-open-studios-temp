@@ -1,13 +1,28 @@
 import groq from 'groq';
 
 import client from '@client';
+import { Navigation } from '@components';
 import s from './styles/index.module.scss';
 
 const Index = ({ heading }) => {
+  const links = [
+    {
+      label: 'Explore',
+      href: '/explore',
+    },
+    {
+      label: 'afhboston.org',
+      href: 'https://www.afhboston.org',
+    },
+  ];
+
   return (
-    <main className={s.container}>
-      <h1 className={s.heading}>{heading}</h1>
-    </main>
+    <>
+      <Navigation links={links} />
+      <main className={s.container}>
+        <h1 className={s.heading}>{heading}</h1>
+      </main>
+    </>
   );
 };
 
