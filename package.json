@@ -25,6 +25,6 @@
     "sass": "^1.32.8"
   },
   "devDependencies": {
-    "temples": "^2.0.0"
+    "temples": "^2.1.0"
   }
 }
