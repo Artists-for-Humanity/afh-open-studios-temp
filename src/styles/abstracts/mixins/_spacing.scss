@@ -1,0 +1,20 @@
+@mixin flex($direction: row, $justify: none, $align: none) {
+  display: flex;
+  flex-direction: $direction;
+
+  @if $justify != none {
+    justify-content: $justify;
+  }
+
+  @if $align != none {
+    align-items: $align;
+  }
+}
+
+@mixin margin($value) {
+  @include shorthander(margin, $value);
+}
+
+@mixin padding($value) {
+  @include shorthander(padding, $value);
+}

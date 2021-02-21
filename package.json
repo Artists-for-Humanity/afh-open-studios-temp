@@ -1,0 +1,27 @@
+{
+  "name": "afh-open-studios",
+  "version": "1.0.0",
+  "description": "Virtual open studios tour of Artists for Humanity.",
+  "scripts": {
+    "start": "next dev -p 8080",
+    "build": "next build",
+    "serve": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gvjacob/afh-open-studios.git"
+  },
+  "keywords": [],
+  "author": "Gino Jacob <gvjacob@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gvjacob/afh-open-studios/issues"
+  },
+  "homepage": "https://github.com/gvjacob/afh-open-studios#readme",
+  "dependencies": {
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.32.8"
+  }
+}
