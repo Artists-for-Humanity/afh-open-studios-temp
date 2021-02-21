@@ -1,0 +1,21 @@
+base:
+  templates: .temples/templates
+  target: src
+
+regex:
+  js: '\/\/ temples: (.+)'
+
+generators:
+  component:
+    props:
+      - name: name
+        doc: component name
+
+    files:
+      - template: component.hbs
+        target: 'components/{{ title-case name }}/index.js'
+      - template: styles.hbs
+        target: 'components/{{ title-case name }}/styles.module.scss'
+
+    inserts:
+      - target: components/index.js
