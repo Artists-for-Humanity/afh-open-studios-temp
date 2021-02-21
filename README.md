@@ -17,13 +17,13 @@ We're using [Lerna](https://lerna.js.org/) to manage both `studio` and `web`.
 git clone git@github.com:gvjacob/afh-open-studios.git
 ```
 
-1. Install dependencies
+2. Install dependencies
 
 ```sh
 npm install
 ```
 
-1. Start the application. Access the web application at [http://localhost:8080](http://localhost:8080), and Sanity studio at [http://localhost:3333](http://localhost:3333).
+3. Start the application. Access the web application at [http://localhost:8080](http://localhost:8080), and Sanity studio at [http://localhost:3333](http://localhost:3333).
 
 ```sh
 npm start

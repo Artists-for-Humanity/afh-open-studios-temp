@@ -12,7 +12,7 @@ Sanity Studio CMS for Artists for Humanity's virtual open studios.
 npm install
 ```
 
-1. Start the studio, and access it in [http://localhost:3333](http://localhost:3333).
+2. Start the studio, and access it in [http://localhost:3333](http://localhost:3333).
 
 ```sh
 npm start

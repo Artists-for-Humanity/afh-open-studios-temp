@@ -10,7 +10,7 @@ Virtual open studios tour of Artists for Humanity, built with Next.js
 npm install
 ```
 
-1. Start the application, and access it in [http://localhost:8080](http://localhost:8080).
+2. Start the application, and access it in [http://localhost:8080](http://localhost:8080).
 
 ```sh
 npm start
