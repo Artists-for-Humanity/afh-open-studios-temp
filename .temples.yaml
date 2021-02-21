@@ -19,3 +19,14 @@ generators:
 
     inserts:
       - target: components/index.js
+
+  page:
+    props:
+      - name: name
+        doc: page component name
+
+    files:
+      - template: page.hbs
+        target: 'pages/{{ kebab-case name }}.js'
+      - template: styles.hbs
+        target: 'pages/styles/{{ kebab-case name }}.module.scss'
