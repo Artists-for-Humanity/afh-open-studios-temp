@@ -1,3 +1,9 @@
+import s from './styles/index.module.scss';
+
 export default function Index() {
-  return <h1>Artists for Humanity</h1>;
+  return (
+    <main className={s.container}>
+      <h1 className={s.heading}>Artists for Humanity</h1>
+    </main>
+  );
 }
