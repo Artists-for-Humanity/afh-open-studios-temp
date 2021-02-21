@@ -1,0 +1,22 @@
+{
+  "name": "afh-open-studios",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "postinstall": "lerna bootstrap",
+    "start": "lerna run start --parallel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gvjacob/afh-open-studios.git"
+  },
+  "author": "gvjacob",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gvjacob/afh-open-studios/issues"
+  },
+  "homepage": "https://github.com/gvjacob/afh-open-studios#readme",
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
