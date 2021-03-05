@@ -1,0 +1,18 @@
+base:
+  templates: .temples
+  target: .
+
+regex:
+  js: '\/\/ temples: (.+)'
+
+generators:
+  schema:
+    props: [name, title, type]
+    position: above
+
+    files:
+      - target: 'schemas/{{ name }}.js'
+        template: schema.hbs
+
+    inserts:
+      - target: schemas/schema.js
