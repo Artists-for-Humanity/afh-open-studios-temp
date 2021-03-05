@@ -29,6 +29,12 @@ const Touchpoints = React.forwardRef((props, ref) => {
   const [touchpoints, setTouchpoints] = useState(props.value || []);
   const imageRef = useRef();
 
+  /**
+   * There's no alternative to withDocument that is more
+   * scoped to the container object. We might have to make
+   * this access more flexible in case we embed the
+   * object in other documents.
+   */
   const imageSourceRef = get(props, 'document.explorer.image.src');
 
   /**
