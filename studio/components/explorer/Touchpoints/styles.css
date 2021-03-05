@@ -1,0 +1,27 @@
+.container {
+  margin-top: 20px;
+}
+
+.imageContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 100%;
+}
+
+.marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.warning {
+  display: flex;
+  align-items: center;
+}
+
+.warning > svg {
+  color: orange;
+  margin-right: 5px;
+}

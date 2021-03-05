@@ -15,6 +15,9 @@ export default createSchema({
     require('./richImage').default,
     require('./footer').default,
     require('./link').default,
+    require('./explorer').default,
+    require('./studio').default,
+    require('./coordinates').default,
     // temples: require('./{{ name }}').default,
   ]),
 });
