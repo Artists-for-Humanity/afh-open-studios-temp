@@ -9,14 +9,15 @@ export default () =>
         .child(S.editor().schemaType('landingPage').documentId('landingPage')),
 
       S.listItem()
-        .title('Studio')
-        .child(S.editor().schemaType('studio').documentId('studio')),
-
-      S.listItem()
         .title('Footer')
         .child(S.editor().schemaType('footer').documentId('footer')),
 
       S.divider(),
+
+      S.listItem()
+        .title('Studios')
+        .schemaType('studio')
+        .child(S.documentList().title('Studios').filter('_type == "studio"')),
 
       ...S.documentTypeListItems().filter(
         (listItem) =>
