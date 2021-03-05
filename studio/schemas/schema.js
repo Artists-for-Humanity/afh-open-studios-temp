@@ -13,6 +13,8 @@ export default createSchema({
   types: schemaTypes.concat([
     require('./landingPage').default,
     require('./richImage').default,
+    require('./footer').default,
+    require('./link').default,
     // temples: require('./{{ name }}').default,
   ]),
 });
