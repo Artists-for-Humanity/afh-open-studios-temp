@@ -5,8 +5,8 @@ export default {
   fields: [
     {
       title: 'Explorer',
-      name: 'explorer',
-      type: 'explorer',
+      name: 'scene',
+      type: 'scene',
     },
   ],
 };

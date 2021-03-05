@@ -10,12 +10,7 @@ import PatchEvent, { set, unset } from 'part:@sanity/form-builder/patch-event';
 
 import Marker from './Marker';
 
-import {
-  getImageUrl,
-  minmax,
-  getPercentage,
-  removeByIndex,
-} from '../../../utils';
+import { getImageUrl, minmax, getPercentage, removeByIndex } from '../../utils';
 
 import s from './styles.css';
 
@@ -35,7 +30,7 @@ const Touchpoints = React.forwardRef((props, ref) => {
    * this access more flexible in case we embed the
    * object in other documents.
    */
-  const imageSourceRef = get(props, 'document.explorer.image.src');
+  const imageSourceRef = get(props, 'document.scene.image.src');
 
   /**
    * Update database when touchpoints changes.
@@ -85,26 +80,28 @@ const Touchpoints = React.forwardRef((props, ref) => {
   const clearTouchpoints = () => setTouchpoints([]);
 
   return (
-    <div className={s.container} ref={ref}>
+    <div className={s.container}>
       <Heading as="h3">Add Touchpoints</Heading>
       <p>Click on the image to add touchpoints.</p>
-      <div className={s.imageContainer}>
-        <img
-          className={s.image}
-          ref={imageRef}
-          src={getImageUrl(imageSourceRef)}
-          onClick={onClick}
-        />
-        {touchpoints.map(({ x, y }, i) => (
-          <Marker
-            className={s.marker}
-            key={i}
-            number={i + 1}
-            style={{ left: `${x}%`, top: `${y}%` }}
-            onClick={() => removeTouchpoint(i)}
+      <a ref={ref}>
+        <div className={s.imageContainer}>
+          <img
+            className={s.image}
+            ref={imageRef}
+            src={getImageUrl(imageSourceRef)}
+            onClick={onClick}
           />
-        ))}
-      </div>
+          {touchpoints.map(({ x, y }, i) => (
+            <Marker
+              className={s.marker}
+              key={i}
+              number={i + 1}
+              style={{ left: `${x}%`, top: `${y}%` }}
+              onClick={() => removeTouchpoint(i)}
+            />
+          ))}
+        </div>
+      </a>
       <Button
         mode="ghost"
         tone="critical"
@@ -116,6 +113,8 @@ const Touchpoints = React.forwardRef((props, ref) => {
   );
 });
 
-Touchpoints.focus = () => {};
+Touchpoints.focus = () => {
+  this._inputElement.focus();
+};
 
 export default withDocument(Touchpoints);

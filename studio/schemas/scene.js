@@ -1,9 +1,8 @@
-import Touchpoints from '../components/explorer/Touchpoints';
-import Content from '../components/explorer/Content';
+import Touchpoints from '../components/Touchpoints';
 
 export default {
-  title: 'Explorer',
-  name: 'explorer',
+  title: 'Scene',
+  name: 'scene',
   type: 'object',
   fields: [
     {
