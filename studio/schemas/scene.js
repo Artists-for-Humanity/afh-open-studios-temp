@@ -1,3 +1,4 @@
+import React from 'react';
 import Touchpoints from '../components/Touchpoints';
 
 export default {
@@ -6,9 +7,16 @@ export default {
   type: 'object',
   fields: [
     {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       title: 'Image',
       name: 'image',
       type: 'richImage',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Touchpoints',
@@ -24,4 +32,18 @@ export default {
       of: [{ type: 'string' }],
     },
   ],
+
+  preview: {
+    select: {
+      title: 'title',
+      media: 'image.src.asset.url',
+    },
+
+    prepare({ title, media }) {
+      return {
+        title: title || '',
+        media: media ? <img src={media} /> : '',
+      };
+    },
+  },
 };
