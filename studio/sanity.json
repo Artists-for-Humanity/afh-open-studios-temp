@@ -12,7 +12,8 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "@sanity/dashboard"
   ],
   "env": {
     "development": {
@@ -27,6 +28,10 @@
     {
       "name": "part:@sanity/desk-tool/structure",
       "path": "./structure"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "dashboard.js"
     }
   ]
 }
