@@ -9,6 +9,12 @@ export default () =>
         .child(S.editor().schemaType('landingPage').documentId('landingPage')),
 
       S.listItem()
+        .title('Farewell Page')
+        .child(
+          S.editor().schemaType('farewellPage').documentId('farewellPage'),
+        ),
+
+      S.listItem()
         .title('Footer')
         .child(S.editor().schemaType('footer').documentId('footer')),
 
@@ -21,6 +27,8 @@ export default () =>
 
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !['landingPage', 'studio', 'footer'].includes(listItem.getId()),
+          !['landingPage', , 'farewellPage', 'studio', 'footer'].includes(
+            listItem.getId(),
+          ),
       ),
     ]);

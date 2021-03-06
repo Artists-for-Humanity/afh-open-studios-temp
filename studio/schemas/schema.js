@@ -12,6 +12,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     require('./landingPage').default,
+    require('./farewellPage').default,
     require('./richImage').default,
     require('./footer').default,
     require('./link').default,

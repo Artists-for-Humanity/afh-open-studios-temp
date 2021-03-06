@@ -9,9 +9,7 @@ import { withDocument } from 'part:@sanity/form-builder';
 import PatchEvent, { set, unset } from 'part:@sanity/form-builder/patch-event';
 
 import Marker from './Marker';
-
 import { getImageUrl, minmax, getPercentage, removeByIndex } from '../../utils';
-
 import s from './styles.css';
 
 /**
