@@ -19,7 +19,7 @@ export default {
       title: 'Scenes',
       name: 'scenes',
       type: 'array',
-      of: [{ type: 'scene' }],
+      of: [{ type: 'reference', to: [{ type: 'scene' }] }],
     },
   ],
 };

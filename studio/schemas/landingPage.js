@@ -1,3 +1,5 @@
+import { required } from './utils';
+
 export default {
   name: 'landingPage',
   title: 'Landing Page',
@@ -7,12 +9,12 @@ export default {
       name: 'heading',
       title: 'Heading',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'string',
+      name: 'introduction',
+      title: 'Introduction',
+      type: 'richText',
     },
     {
       name: 'epicenterImage',
@@ -24,23 +26,23 @@ export default {
     {
       name: 'background',
       title: 'Background Information',
-      type: 'text',
+      type: 'richText',
       description: 'Brief background information about AFH and the EpiCenter.',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
     {
       name: 'cta',
       title: 'Call to Action',
       type: 'string',
       description: 'Prompt to start tour.',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
   ],
 
   preview: {
     select: {
       title: 'heading',
-      subtitle: 'description',
+      subtitle: 'introduction',
     },
   },
 };

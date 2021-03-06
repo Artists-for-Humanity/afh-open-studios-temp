@@ -27,11 +27,11 @@
     },
     {
       "name": "part:@sanity/desk-tool/structure",
-      "path": "./structure"
+      "path": "parts/structure"
     },
     {
       "implements": "part:@sanity/dashboard/config",
-      "path": "dashboard.js"
+      "path": "parts/dashboard"
     }
   ]
 }

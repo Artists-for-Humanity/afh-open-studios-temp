@@ -1,42 +1,47 @@
+import { required } from './utils';
+
 export default {
   title: 'Footer',
   name: 'footer',
   type: 'document',
   fields: [
     {
-      title: 'Description',
-      name: 'description',
-      type: 'text',
-      validation: (Rule) => Rule.required(),
+      title: 'About',
+      name: 'about',
+      type: 'richText',
+      description: 'Write a summary explaining AFH.',
+      validation: required,
     },
     {
       title: 'Call to Action',
       name: 'ctaLink',
       type: 'link',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
     {
       title: 'Contact',
       name: 'contact',
-      type: 'string',
+      type: 'richText',
       description: 'Address and/or contact numbers.',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
     {
       title: 'Copyright Information',
       name: 'copyright',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
     {
       title: 'Social Media Links',
       name: 'socialMediaLinks',
       type: 'array',
       of: [{ type: 'link' }],
+      validation: (Rule) => Rule.max(4),
     },
   ],
+
   preview: {
-    prepare(selection) {
+    prepare() {
       return {
         title: 'Footer',
       };

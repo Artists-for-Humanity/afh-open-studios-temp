@@ -4,7 +4,7 @@ import Touchpoints from '../components/Touchpoints';
 export default {
   title: 'Scene',
   name: 'scene',
-  type: 'object',
+  type: 'document',
   fields: [
     {
       title: 'Title',
