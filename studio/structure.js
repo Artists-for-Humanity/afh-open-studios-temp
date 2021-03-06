@@ -14,10 +14,6 @@ export default () =>
           S.editor().schemaType('farewellPage').documentId('farewellPage'),
         ),
 
-      S.listItem()
-        .title('Footer')
-        .child(S.editor().schemaType('footer').documentId('footer')),
-
       S.divider(),
 
       S.listItem()
@@ -25,9 +21,21 @@ export default () =>
         .schemaType('studio')
         .child(S.documentList().title('Studios').filter('_type == "studio"')),
 
+      S.divider(),
+
+      S.listItem()
+        .title('Default SEO')
+        .child(S.editor().schemaType('seo').documentId('seo')),
+
+      S.listItem()
+        .title('Footer')
+        .child(S.editor().schemaType('footer').documentId('footer')),
+
+      S.divider(),
+
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !['landingPage', , 'farewellPage', 'studio', 'footer'].includes(
+          !['landingPage', 'seo', 'farewellPage', 'studio', 'footer'].includes(
             listItem.getId(),
           ),
       ),

@@ -19,6 +19,7 @@ export default createSchema({
     require('./scene').default,
     require('./studio').default,
     require('./coordinates').default,
+    require('./seo').default,
     // temples: require('./{{ name }}').default,
   ]),
 });
