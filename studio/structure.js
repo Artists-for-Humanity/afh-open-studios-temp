@@ -24,7 +24,7 @@ export default () =>
       S.divider(),
 
       S.listItem()
-        .title('Default SEO')
+        .title('SEO')
         .child(S.editor().schemaType('seo').documentId('seo')),
 
       S.listItem()
