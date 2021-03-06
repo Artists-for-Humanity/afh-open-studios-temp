@@ -1,4 +1,4 @@
-import { required } from './utils';
+import { required } from '../utils/validation';
 
 export default {
   name: 'landingPage',

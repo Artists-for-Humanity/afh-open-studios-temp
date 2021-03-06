@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { required } from '../utils/validation';
 import Touchpoints from '../components/Touchpoints';
 
 export default {
@@ -10,13 +12,13 @@ export default {
       title: 'Title',
       name: 'title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
     {
       title: 'Image',
       name: 'image',
       type: 'richImage',
-      validation: (Rule) => Rule.required(),
+      validation: required,
     },
     {
       title: 'Touchpoints',
