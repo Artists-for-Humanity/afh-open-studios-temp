@@ -24,12 +24,12 @@ export default () =>
       S.divider(),
 
       S.listItem()
-        .title('SEO')
-        .child(S.editor().schemaType('seo').documentId('seo')),
-
-      S.listItem()
         .title('Footer')
         .child(S.editor().schemaType('footer').documentId('footer')),
+
+      S.listItem()
+        .title('SEO')
+        .child(S.editor().schemaType('seo').documentId('seo')),
 
       S.divider(),
 
