@@ -24,6 +24,7 @@ const Index = ({ heading, introduction, epicenterImage, cta, background }) => {
         <RichText blocks={introduction} />
         <RichText blocks={background} />
         <Image img={epicenterImage} />
+        <button>{cta}</button>
       </main>
     </>
   );
