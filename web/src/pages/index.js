@@ -1,10 +1,10 @@
 import groq from 'groq';
 
 import client from '@client';
-import { Navigation, RichText } from '@components';
+import { Navigation, RichText, Image } from '@components';
 import s from './styles/index.module.scss';
 
-const Index = ({ heading }) => {
+const Index = ({ heading, introduction, epicenterImage, cta, background }) => {
   const links = [
     {
       label: 'Explore',
@@ -21,6 +21,9 @@ const Index = ({ heading }) => {
       <Navigation links={links} />
       <main className={s.container}>
         <h1 className={s.heading}>{heading}</h1>
+        <RichText blocks={introduction} />
+        <RichText blocks={background} />
+        <Image img={epicenterImage} />
       </main>
     </>
   );
