@@ -1,0 +1,15 @@
+@import 'abstracts';
+
+.container {
+  p {
+    margin-bottom: $sp-xs;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+}

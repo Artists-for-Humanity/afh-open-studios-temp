@@ -1,7 +1,7 @@
 import groq from 'groq';
 
 import client from '@client';
-import { Navigation } from '@components';
+import { Navigation, RichText } from '@components';
 import s from './styles/index.module.scss';
 
 const Index = ({ heading }) => {
@@ -27,14 +27,18 @@ const Index = ({ heading }) => {
 };
 
 export const getStaticProps = async () => {
-  const { heading } = await client.fetch(groq`
-    *[_type == 'landingPage']{ heading }[0]
+  const payload = await client.fetch(groq`
+    *[_type == 'landingPage']{
+      heading,
+      introduction,
+      epicenterImage,
+      cta,
+      background
+    }[0]
   `);
 
   return {
-    props: {
-      heading,
-    },
+    props: payload,
   };
 };
 
