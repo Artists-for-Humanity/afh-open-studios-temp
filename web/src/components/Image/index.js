@@ -1,8 +1,8 @@
 import React from 'react';
-import s from './styles.module.scss';
-
 import ImageURLBuilder from '@sanity/image-url';
-import client from '../../client';
+
+import client from '@client';
+import s from './styles.module.scss';
 
 const imageURLBuilder = ImageURLBuilder(client);
 
