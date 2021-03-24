@@ -1,7 +1,8 @@
 @import 'abstracts';
 
+$transition: all 0.1s ease-in-out;
+
 .container {
-  background-color: $graphite;
   position: absolute;
 
   top: 0;
@@ -18,14 +19,27 @@
 
 .checkpoints {
   @include flex(row);
+  background-color: $graphite;
+  flex-grow: 1;
   position: relative;
+
+  &::before {
+    content: '';
+    border-bottom: 1px solid $gray;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+  }
 }
 
 .link {
   @include on-focus {
-    li {
+    li,
+    li > p {
       background-color: $river-bed;
+    }
 
+    li {
       .nested {
         @include visible;
       }
@@ -35,8 +49,28 @@
   li {
     @include padding($sp-xs-sm $sp-sm);
     @include flex(column, center);
-    transition: all 0.1s ease-in-out;
+    transition: $transition;
     height: 80px;
+  }
+
+  z-index: 1;
+}
+
+.linkText {
+  position: relative;
+  transition: $transition;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+
+    width: calc(100% + 40px);
+    height: 100%;
+
+    background-color: $graphite;
+    transform: translateX(-50%);
   }
 }
 
@@ -50,7 +84,8 @@
     }
   }
 
-  transition: all 0.1s ease-in-out;
+  background-color: $graphite;
+  transition: $transition;
   border-left: 1px solid $gray;
 }
 
@@ -64,9 +99,10 @@
   width: 100vw;
 
   background-color: $river-bed;
-  transition: all 0.1s ease-in-out;
+  transition: $transition;
 
   li {
+    background-color: $graphite;
     width: fit-content;
   }
 }
