@@ -1,7 +1,5 @@
 @import 'abstracts';
 
-$transition: all 0.1s ease-in-out;
-
 .container {
   position: absolute;
 
@@ -49,7 +47,6 @@ $transition: all 0.1s ease-in-out;
   li {
     @include padding($sp-xs-sm $sp-sm);
     @include flex(column, center);
-    transition: $transition;
     height: 80px;
   }
 
@@ -58,7 +55,6 @@ $transition: all 0.1s ease-in-out;
 
 .linkText {
   position: relative;
-  transition: $transition;
 
   &::before {
     content: '';
@@ -85,7 +81,6 @@ $transition: all 0.1s ease-in-out;
   }
 
   background-color: $graphite;
-  transition: $transition;
   border-left: 1px solid $gray;
 }
 
@@ -99,7 +94,6 @@ $transition: all 0.1s ease-in-out;
   width: 100vw;
 
   background-color: $river-bed;
-  transition: $transition;
 
   li {
     background-color: $graphite;
