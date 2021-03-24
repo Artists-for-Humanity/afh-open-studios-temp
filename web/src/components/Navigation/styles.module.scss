@@ -9,9 +9,5 @@
 }
 
 .links {
-  @include flex(row, flex-end);
-
-  li {
-    margin-left: $sp-sm;
-  }
+  @include flex(row);
 }
