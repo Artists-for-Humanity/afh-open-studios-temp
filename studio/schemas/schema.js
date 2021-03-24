@@ -21,6 +21,8 @@ export default createSchema({
     require('./coordinates').default,
     require('./seo').default,
     require('./richText').default,
+    require('./navigation').default,
+    require('./checkpoints').default,
     // temples: require('./{{ name }}').default,
   ]),
 });

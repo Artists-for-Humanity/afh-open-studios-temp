@@ -32,6 +32,10 @@ export default () =>
       S.divider(),
 
       S.listItem()
+        .title('Navigation')
+        .child(S.editor().schemaType('navigation').documentId('navigation')),
+
+      S.listItem()
         .title('Studios')
         .schemaType('studio')
         .child(
@@ -63,6 +67,7 @@ export default () =>
           ![
             'landingPage',
             'scene',
+            'navigation',
             'seo',
             'farewellPage',
             'studio',
