@@ -12,6 +12,13 @@ export default {
       type: 'string',
     },
     {
+      title: 'Short Title',
+      name: 'short_title',
+      description:
+        'Truncated name of this studio. Default to Title if not provided.',
+      type: 'string',
+    },
+    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
