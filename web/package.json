@@ -26,9 +26,11 @@
     "@sanity/image-url": "^0.140.22",
     "classnames": "^2.2.6",
     "groq": "^2.2.6",
+    "lodash.get": "^4.4.2",
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-if": "^4.0.1",
     "sass": "^1.32.8"
   },
   "devDependencies": {

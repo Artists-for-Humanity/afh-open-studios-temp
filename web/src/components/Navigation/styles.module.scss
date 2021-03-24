@@ -1,13 +1,69 @@
 @import 'abstracts';
 
 .container {
-  @include padding($sp-sm);
+  background-color: $graphite;
   position: absolute;
 
   top: 0;
   width: 100%;
+
+  nav {
+    @include flex(row, space-between);
+  }
+
+  * {
+    color: $white;
+  }
 }
 
-.links {
+.checkpoints {
   @include flex(row);
+  position: relative;
+}
+
+.link {
+  @include on-focus {
+    li {
+      background-color: $river-bed;
+
+      .nested {
+        @include visible;
+      }
+    }
+  }
+
+  li {
+    @include padding($sp-xs-sm $sp-sm);
+    transition: all 0.1s ease-in-out;
+    height: 100%;
+  }
+}
+
+.cta {
+  @include padding($sp-xs-sm $sp-sm);
+  @include on-focus {
+    background-color: $river-bed;
+
+    .nested {
+      @include visible;
+    }
+  }
+
+  transition: all 0.1s ease-in-out;
+  border-left: 1px solid $gray;
+}
+
+.nested {
+  @include hidden;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+
+  background-color: $river-bed;
+
+  li {
+    width: fit-content;
+  }
 }
