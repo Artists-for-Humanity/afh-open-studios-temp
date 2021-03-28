@@ -16,9 +16,8 @@
 
 @mixin ff-gotham-cta {
   @extend %ff-set;
-  font-size: 24px;
+  @include ff-gotham-body;
   font-weight: bold;
-  line-height: 32px;
   text-transform: uppercase;
 
   @include mq($bp-tablet, 'max') {
