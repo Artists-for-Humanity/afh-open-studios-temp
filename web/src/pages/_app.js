@@ -2,11 +2,11 @@ import groq from 'groq';
 import { Switch, Case } from 'react-if';
 
 import client from '@client';
-import { Navigation } from '@components';
+import { Navigation, Footer } from '@components';
 import '../styles/index.scss';
 
 function App({ Component, pageProps, router, props }) {
-  const { navigation } = props;
+  const { navigation, footer } = props;
   const { pathname } = router;
 
   return (
@@ -20,6 +20,7 @@ function App({ Component, pageProps, router, props }) {
         </Case>
       </Switch>
       <Component {...pageProps} />
+      <Footer {...footer} />
     </>
   );
 }
@@ -36,9 +37,20 @@ App.getInitialProps = async () => {
     }[0]
   `);
 
+  const footer = await client.fetch(groq`
+    *[_type == 'footer']{
+      about,
+      contact,
+      copyright,
+      ctaLink,
+      socialMediaLinks
+    }[0]
+  `);
+
   return {
     props: {
       navigation,
+      footer,
     },
   };
 };

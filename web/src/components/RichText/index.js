@@ -6,7 +6,11 @@ import s from './styles.module.scss';
 
 const RichText = ({ className, blocks }) => {
   return (
-    <BlockContent className={cn(className, s.container)} blocks={blocks} />
+    <BlockContent
+      className={cn(s.container, className)}
+      blocks={blocks}
+      renderContainerOnSingleChild
+    />
   );
 };
 
