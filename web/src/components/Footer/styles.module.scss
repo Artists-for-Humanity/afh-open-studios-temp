@@ -71,14 +71,14 @@
 }
 
 .cta {
-  @include padding($sp-xs);
+  @include padding($sp-xs $sp-sm);
   @include ff-gotham-cta;
-  text-align: center;
 
   color: $green;
   border: 1px solid $green;
   border-radius: 50px;
   height: fit-content;
+  text-align: center;
 
   @include on-focus {
     color: $white;
