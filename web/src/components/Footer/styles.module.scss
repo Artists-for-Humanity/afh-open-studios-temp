@@ -1,1 +1,87 @@
 @import 'abstracts';
+
+.container {
+  @include padding($sp-sm);
+  color: $white;
+  background-color: $graphite;
+}
+
+.content {
+  @include flex(row, space-between);
+  margin-bottom: $sp-md;
+
+  .about {
+    @include ff-gotham-body;
+    width: 30%;
+  }
+
+  @include mq($bp-tablet, 'max') {
+    @include flex(column, flex-start);
+    margin-bottom: $sp-sm;
+
+    .about {
+      margin-bottom: $sp-xs;
+      width: 100%;
+    }
+  }
+}
+
+.information {
+  @include flex(row, space-between);
+
+  .contact {
+    @include ff-gotham-sub-body;
+  }
+
+  @include mq($bp-tablet, 'max') {
+    @include flex(column-reverse, flex-start);
+
+    .social {
+      margin-bottom: $sp-sm;
+    }
+  }
+}
+
+.social {
+  @include flex(row);
+
+  p {
+    font-weight: bold;
+  }
+
+  ul {
+    @include flex(row);
+
+    li {
+      margin-left: $sp-sm;
+    }
+  }
+
+  @include mq($bp-tablet, 'max') {
+    @include flex(column, flex-start);
+
+    ul {
+      @include flex(column, flex-start);
+
+      li {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.cta {
+  @include padding($sp-xs);
+  @include ff-gotham-cta;
+  text-align: center;
+
+  color: $green;
+  border: 1px solid $green;
+  border-radius: 50px;
+  height: fit-content;
+
+  @include on-focus {
+    color: $white;
+    background-color: $green;
+  }
+}
