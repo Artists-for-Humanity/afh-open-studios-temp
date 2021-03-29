@@ -1,9 +1,11 @@
 @mixin hidden {
+  display: none;
   opacity: 0;
   visibility: hidden;
 }
 
 @mixin visible {
+  display: inherit;
   opacity: 1;
   visibility: visible;
 }

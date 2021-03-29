@@ -24,49 +24,53 @@
   &::before {
     content: '';
     border-bottom: 1px solid $gray;
-    width: 100%;
     position: absolute;
     top: 50%;
+    width: 100%;
   }
 }
 
 .link {
-  @include on-focus {
-    li,
-    li > p {
-      background-color: $river-bed;
-    }
+  font-weight: bold;
 
+  li {
+    @include padding($sp-xs-sm $sp-sm);
+    @include flex(column, center);
+    height: 100%;
+  }
+
+  @include on-focus {
     li {
+      background-color: $river-bed;
+
       .nested {
         @include visible;
       }
     }
   }
 
-  li {
-    @include padding($sp-xs-sm $sp-sm);
-    @include flex(column, center);
-    height: 80px;
-  }
-
   z-index: 1;
 }
 
-.linkText {
+.label {
   position: relative;
 
   &::before {
     content: '';
     position: absolute;
     left: 50%;
-    z-index: -1;
 
     width: calc(100% + 40px);
     height: 100%;
 
     background-color: $graphite;
     transform: translateX(-50%);
+
+    z-index: -1;
+  }
+
+  .chevron {
+    margin-left: $sp-xxs;
   }
 }
 
@@ -82,6 +86,7 @@
 
   background-color: $graphite;
   border-left: 1px solid $gray;
+  font-weight: bold;
 }
 
 .nested {

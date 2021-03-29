@@ -28,7 +28,9 @@ const Navigation = ({ checkpoints, cta }) => {
               href={getAttrFromFirst(checkpoints, 'slug.current')}
             >
               <li key={i}>
-                <p className={s.linkText}>{title}</p>
+                <span className={s.label}>
+                  {title} <i className={cn(s.chevron, 'fas fa-chevron-down')} />
+                </span>
                 <NestedCheckpoints checkpoints={checkpoints} />
               </li>
             </a>

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import groq from 'groq';
 import { Switch, Case } from 'react-if';
 
@@ -11,6 +12,13 @@ function App({ Component, pageProps, router, props }) {
 
   return (
     <>
+      <Head>
+        <script
+          src="https://kit.fontawesome.com/f9c2d11971.js"
+          crossorigin="anonymous"
+        ></script>
+      </Head>
+
       <Switch>
         <Case condition={pathname === '/explore'}>
           <Navigation
@@ -19,6 +27,7 @@ function App({ Component, pageProps, router, props }) {
           />
         </Case>
       </Switch>
+
       <Component {...pageProps} />
       <Footer {...footer} />
     </>
