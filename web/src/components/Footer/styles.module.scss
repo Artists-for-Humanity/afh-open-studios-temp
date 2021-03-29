@@ -51,9 +51,13 @@
 
   ul {
     @include flex(row);
+  }
 
-    li {
-      margin-left: $sp-sm;
+  li {
+    margin-left: $sp-sm;
+
+    @include on-focus {
+      color: $gray;
     }
   }
 
@@ -62,10 +66,10 @@
 
     ul {
       @include flex(column, flex-start);
+    }
 
-      li {
-        margin-left: 0;
-      }
+    li {
+      margin-left: 0;
     }
   }
 }
