@@ -30,8 +30,8 @@ const Footer = ({
         <div className={s.social}>
           <p>Follow Us</p>
           <ul>
-            {socialMediaLinks.map(({ text, url }) => (
-              <li>
+            {socialMediaLinks.map(({ text, url }, i) => (
+              <li key={i}>
                 <Link href={url}>{text}</Link>
               </li>
             ))}

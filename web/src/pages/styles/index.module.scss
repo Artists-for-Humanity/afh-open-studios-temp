@@ -4,3 +4,33 @@
   @include size(100vw, 100vh);
   @include flex(column, center, center);
 }
+
+.cta {
+  @include size(200px);
+  @include flex(column, center, center);
+  @include ff-gotham-cta;
+
+  background-color: $green;
+  border-radius: 100%;
+  color: white;
+
+  position: absolute;
+  bottom: $sp-md;
+  right: $sp-md;
+
+  &::before {
+    @include size(100%);
+    content: '';
+    background-color: $green;
+    border-radius: 100%;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    z-index: -1;
+  }
+
+  @include on-focus {
+    &::before {
+      @include size(calc(100% + #{$sp-xxs}));
+    }
+  }
+}

@@ -15,7 +15,7 @@ function App({ Component, pageProps, router, props }) {
       <Head>
         <script
           src="https://kit.fontawesome.com/f9c2d11971.js"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
       </Head>
 

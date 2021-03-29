@@ -1,17 +1,19 @@
 import groq from 'groq';
 
 import client from '@client';
-import { Navigation, RichText, Image } from '@components';
+import { Navigation, RichText, Image, Link } from '@components';
 import s from './styles/index.module.scss';
 
 const Index = ({ heading, introduction, epicenterImage, cta, background }) => {
   return (
     <main className={s.container}>
-      <h1 className={s.heading}>{heading}</h1>
+      <h1>{heading}</h1>
       <RichText blocks={introduction} />
       <RichText blocks={background} />
       <Image img={epicenterImage} />
-      <button>{cta}</button>
+      <Link className={s.cta} href="/explore">
+        {cta}
+      </Link>
     </main>
   );
 };
