@@ -4,13 +4,10 @@ import client from '@client';
 import { Navigation, RichText, Image, Link } from '@components';
 import s from './styles/index.module.scss';
 
-const Index = ({ heading, introduction, epicenterImage, cta, background }) => {
+const Index = ({ heading, background_images, cta, steps }) => {
   return (
     <main className={s.container}>
       <h1>{heading}</h1>
-      <RichText blocks={introduction} />
-      <RichText blocks={background} />
-      <Image img={epicenterImage} />
       <Link className={s.cta} href="/explore">
         {cta}
       </Link>
@@ -22,10 +19,9 @@ export const getStaticProps = async () => {
   const payload = await client.fetch(groq`
     *[_type == 'landingPage']{
       heading,
-      introduction,
-      epicenterImage,
+      background_images,
       cta,
-      background
+      steps
     }[0]
   `);
 
