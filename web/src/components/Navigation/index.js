@@ -9,8 +9,8 @@ const NestedCheckpoints = ({ checkpoints }) => {
   return (
     <ul className={s.nested}>
       {checkpoints.map(({ short_title, slug }, i) => (
-        <a className={s.link} href={slug.current}>
-          <li key={i}>{short_title}</li>
+        <a className={s.link} href={slug.current} key={i}>
+          <li>{short_title}</li>
         </a>
       ))}
     </ul>
@@ -26,8 +26,9 @@ const Navigation = ({ checkpoints, cta }) => {
             <a
               className={s.link}
               href={getAttrFromFirst(checkpoints, 'slug.current')}
+              key={i}
             >
-              <li key={i}>
+              <li>
                 <span className={s.label}>
                   {title} <i className={cn(s.chevron, 'fas fa-chevron-down')} />
                 </span>
