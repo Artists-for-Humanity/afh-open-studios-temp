@@ -1,5 +1,23 @@
 import { required } from '../utils/validation';
 
+const TourStep = {
+  type: 'object',
+  fields: [
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+      validation: required,
+    },
+    {
+      title: 'Image',
+      name: 'image',
+      type: 'richImage',
+      validation: required,
+    },
+  ],
+};
+
 export default {
   name: 'landingPage',
   title: 'Landing Page',
@@ -12,23 +30,18 @@ export default {
       validation: required,
     },
     {
-      name: 'introduction',
-      title: 'Introduction',
-      type: 'richText',
+      name: 'background_images',
+      title: 'Background Images',
+      type: 'array',
+      description: 'Images of the EpiCenter to show as background.',
+      of: [{ type: 'richImage' }],
     },
     {
-      name: 'epicenterImage',
-      title: 'EpiCenter Image',
-      type: 'richImage',
-      description:
-        'Image of the EpiCenter. Preferably a PNG with transparent background',
-    },
-    {
-      name: 'background',
-      title: 'Background Information',
-      type: 'richText',
-      description: 'Brief background information about AFH and the EpiCenter.',
-      validation: required,
+      name: 'steps',
+      title: 'Tour Steps',
+      type: 'array',
+      description: 'Step by step explanation of the tour.',
+      of: [TourStep],
     },
     {
       name: 'cta',
