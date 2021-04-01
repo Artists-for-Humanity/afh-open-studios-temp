@@ -3,6 +3,7 @@
 .hero {
   @include site-padding;
   @include flex(column, flex-start);
+  height: 100vh;
 
   h1 {
     @include ff-gotham-hero;

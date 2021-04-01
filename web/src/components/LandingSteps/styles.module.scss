@@ -1,0 +1,30 @@
+@import 'abstracts';
+
+.container {
+  @include site-padding;
+  @include flex;
+  flex-wrap: wrap;
+}
+
+.step {
+  margin-bottom: $sp-sm;
+
+  h2 {
+    color: $white;
+    margin-bottom: $sp-xxs;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @include mq($bp-tablet) {
+    &:not(:last-child) {
+      margin-right: $sp-xs;
+    }
+  }
+
+  @include mq($bp-tablet, 'max') {
+    width: 100%;
+  }
+}

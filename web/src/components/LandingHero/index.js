@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { If } from 'react-if';
+import isEmpty from 'lodash.isempty';
 
 import { Image } from '@components';
 import s from './styles.module.scss';
@@ -6,27 +8,36 @@ import s from './styles.module.scss';
 const LandingHero = ({ className, heading, backgrounds = [] }) => {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
 
+  const withBackgrounds = !isEmpty(backgrounds);
   const isHidden = (i) => i !== backgroundIndex;
 
   useEffect(() => {
-    const backgroundLoop = setInterval(() => {
-      const max = backgrounds.length - 1;
-      const nextBackgroundIndex =
-        backgroundIndex === max ? 0 : backgroundIndex + 1;
+    if (withBackgrounds) {
+      const backgroundLoop = setInterval(() => {
+        const max = backgrounds.length - 1;
+        const nextBackgroundIndex =
+          backgroundIndex === max ? 0 : backgroundIndex + 1;
 
-      setBackgroundIndex(nextBackgroundIndex);
-    }, 4000);
+        setBackgroundIndex(nextBackgroundIndex);
+      }, 4000);
 
-    return () => clearInterval(backgroundLoop);
+      return () => clearInterval(backgroundLoop);
+    }
   }, [backgroundIndex]);
 
   return (
     <section className={s.hero}>
-      <div className={s.backgrounds}>
-        {backgrounds.map((image, i) => (
-          <Image className={isHidden(i) ? s.hidden : ''} img={image} key={i} />
-        ))}
-      </div>
+      <If condition={withBackgrounds}>
+        <div className={s.backgrounds}>
+          {backgrounds.map((image, i) => (
+            <Image
+              className={isHidden(i) ? s.hidden : ''}
+              img={image}
+              key={i}
+            />
+          ))}
+        </div>
+      </If>
       <h1>{heading}</h1>
     </section>
   );
