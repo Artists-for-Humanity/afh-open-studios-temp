@@ -7,7 +7,8 @@ import { Navigation, Footer, SEO } from '@components';
 import '../styles/index.scss';
 
 function App({ Component, pageProps, router, props }) {
-  const { navigation, footer, seo } = props;
+  const { navigation, footer, siteOptions } = props;
+  const { seo } = siteOptions;
   const { pathname } = router;
 
   return (
@@ -30,15 +31,16 @@ function App({ Component, pageProps, router, props }) {
         </Case>
       </Switch>
 
-      <Component {...pageProps} />
+      <Component {...pageProps} siteOptions={siteOptions} />
       <Footer {...footer} />
     </>
   );
 }
 
 App.getInitialProps = async () => {
-  const seo = await client.fetch(groq`
+  const siteOptions = await client.fetch(groq`
     *[_type == 'siteOptions']{
+      logo,
       seo
     }[0]
   `);
@@ -66,7 +68,7 @@ App.getInitialProps = async () => {
 
   return {
     props: {
-      seo,
+      siteOptions,
       navigation,
       footer,
     },

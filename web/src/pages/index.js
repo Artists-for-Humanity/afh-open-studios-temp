@@ -4,10 +4,16 @@ import client from '@client';
 import { LandingHero, LandingSteps, Link } from '@components';
 import s from './styles/index.module.scss';
 
-const Index = ({ heading, background_images, cta, steps }) => {
+const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
+  const { logo } = siteOptions;
+
   return (
     <main>
-      <LandingHero heading={heading} backgrounds={background_images} />
+      <LandingHero
+        heading={heading}
+        backgrounds={background_images}
+        logo={logo}
+      />
       <Link className={s.cta} href="/explore">
         {cta}
       </Link>

@@ -48,3 +48,17 @@
     }
   }
 }
+
+.logo {
+  width: 100px;
+  margin-bottom: $sp-sm;
+  z-index: 1;
+
+  @include mq($bp-tablet) {
+    position: absolute;
+    top: $sp-sm;
+    right: $sp-sm;
+
+    width: 200px;
+  }
+}

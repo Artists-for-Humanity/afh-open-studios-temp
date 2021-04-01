@@ -34,8 +34,7 @@ const Image = ({ image }) => {
   );
 };
 
-const SEO = ({ className, seo }) => {
-  const { title, description, imageRef } = seo;
+const SEO = ({ className, title, description, image: imageRef }) => {
   const image = getImageUrl(imageRef);
 
   return (

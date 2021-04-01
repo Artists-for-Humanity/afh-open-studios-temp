@@ -5,7 +5,7 @@ import isEmpty from 'lodash.isempty';
 import { Image } from '@components';
 import s from './styles.module.scss';
 
-const LandingHero = ({ className, heading, backgrounds = [] }) => {
+const LandingHero = ({ className, heading, backgrounds = [], logo }) => {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
 
   const withBackgrounds = !isEmpty(backgrounds);
@@ -38,6 +38,7 @@ const LandingHero = ({ className, heading, backgrounds = [] }) => {
           ))}
         </div>
       </If>
+      {logo && <Image className={s.logo} img={logo} />}
       <h1>{heading}</h1>
     </section>
   );
