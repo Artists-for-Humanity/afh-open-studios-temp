@@ -24,3 +24,13 @@
     @include ff-gotham-sub-body;
   }
 }
+
+@mixin ff-gotham-hero {
+  font-size: 36px;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  @include mq($bp-tablet) {
+    font-size: 98px;
+  }
+}

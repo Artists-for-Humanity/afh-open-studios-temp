@@ -1,9 +1,8 @@
 @import 'abstracts';
 
 .container {
-  @include padding($sp-sm);
+  @include site-padding;
   color: $white;
-  background-color: $graphite;
 }
 
 .content {

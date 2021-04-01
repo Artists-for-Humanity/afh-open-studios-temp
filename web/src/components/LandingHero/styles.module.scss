@@ -1,0 +1,49 @@
+@import 'abstracts';
+
+.hero {
+  @include site-padding;
+  @include flex(column, flex-start);
+
+  h1 {
+    @include ff-gotham-hero;
+    color: $white;
+    z-index: 1;
+
+    @include mq($bp-monitor) {
+      width: 60%;
+    }
+  }
+
+  @include mq($bp-tablet) {
+    @include flex(column, center);
+    @include size(100vw, 100vh);
+  }
+}
+
+.backgrounds {
+  @include size(100%);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &::after {
+    @include size(100%);
+    content: '';
+
+    background-color: $graphite;
+    position: absolute;
+    opacity: 80%;
+  }
+
+  img {
+    @include size(100%);
+    position: absolute;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
+}

@@ -1,22 +1,22 @@
 @import 'abstracts';
 
 .container {
-  @include size(100vw, 100vh);
-  @include flex(column, center, center);
+  height: 100vh;
 }
 
 .cta {
-  @include size(200px);
+  @include size(150px);
   @include flex(column, center, center);
   @include ff-gotham-cta;
 
   background-color: $green;
   border-radius: 100%;
   color: white;
+  margin: auto;
 
   position: absolute;
   bottom: $sp-sm;
-  right: $sp-sm;
+  z-index: 0;
 
   &::before {
     @include size(100%);
@@ -29,8 +29,19 @@
   }
 
   @include on-focus {
-    &:before {
+    &::before {
       transform: scale(1.1);
     }
+  }
+
+  @include mq($bp-tablet, 'max') {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include mq($bp-tablet) {
+    @include size(200px);
+    position: absolute;
+    right: $sp-sm;
   }
 }

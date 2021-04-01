@@ -1,13 +1,13 @@
 import groq from 'groq';
 
 import client from '@client';
-import { Navigation, RichText, Image, Link } from '@components';
+import { LandingHero, Link } from '@components';
 import s from './styles/index.module.scss';
 
 const Index = ({ heading, background_images, cta, steps }) => {
   return (
     <main className={s.container}>
-      <h1>{heading}</h1>
+      <LandingHero heading={heading} backgrounds={background_images} />
       <Link className={s.cta} href="/explore">
         {cta}
       </Link>

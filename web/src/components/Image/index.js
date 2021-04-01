@@ -6,9 +6,11 @@ import s from './styles.module.scss';
 
 const imageURLBuilder = ImageURLBuilder(client);
 
-const Image = ({ className, img }) => {
+const Image = ({ className, style, img }) => {
   const imageURL = imageURLBuilder.image(img.src);
-  return <img className={className} src={imageURL} alt={img.alt} />;
+  return (
+    <img className={className} style={style} src={imageURL} alt={img.alt} />
+  );
 };
 
 export default Image;

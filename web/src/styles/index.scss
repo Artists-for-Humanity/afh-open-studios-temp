@@ -10,6 +10,8 @@ body {
 
 body {
   @include ff-gotham-body;
+  background-color: $graphite;
+
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }

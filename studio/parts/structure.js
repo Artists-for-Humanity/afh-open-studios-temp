@@ -57,8 +57,8 @@ export default () =>
         .child(S.editor().schemaType('footer').documentId('footer')),
 
       S.listItem()
-        .title('SEO')
-        .child(S.editor().schemaType('seo').documentId('seo')),
+        .title('Site Options')
+        .child(S.editor().schemaType('siteOptions').documentId('siteOptions')),
 
       S.divider(),
 
@@ -72,6 +72,7 @@ export default () =>
             'farewellPage',
             'studio',
             'footer',
+            'siteOptions',
           ].includes(listItem.getId()),
       ),
     ]);

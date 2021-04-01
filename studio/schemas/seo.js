@@ -1,7 +1,7 @@
 export default {
   title: 'SEO',
   name: 'seo',
-  type: 'document',
+  type: 'object',
   fields: [
     {
       title: 'Title',

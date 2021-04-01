@@ -23,6 +23,7 @@ export default createSchema({
     require('./richText').default,
     require('./navigation').default,
     require('./checkpoints').default,
+    require('./siteOptions').default,
     // temples: require('./{{ name }}').default,
   ]),
 });

@@ -18,3 +18,11 @@
 @mixin padding($value) {
   @include shorthander(padding, $value);
 }
+
+@mixin site-padding {
+  @include padding($sp-xs);
+
+  @include mq($bp-tablet) {
+    @include padding($sp-md);
+  }
+}
