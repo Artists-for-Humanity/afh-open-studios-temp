@@ -18,4 +18,11 @@ export default {
       validation: required,
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Site Options',
+      };
+    },
+  },
 };
