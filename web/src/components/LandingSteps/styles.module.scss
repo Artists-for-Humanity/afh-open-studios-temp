@@ -10,8 +10,17 @@
   margin-bottom: $sp-sm;
 
   h2 {
+    @include flex;
     color: $white;
     margin-bottom: $sp-xxs;
+  }
+
+  h2::after {
+    content: '';
+    flex-grow: 1;
+    border-bottom: 1px solid $gray;
+    transform: translateY(-50%);
+    margin-left: $sp-xxs;
   }
 
   img {
