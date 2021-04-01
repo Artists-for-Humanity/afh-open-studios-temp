@@ -3,11 +3,11 @@ import groq from 'groq';
 import { Switch, Case } from 'react-if';
 
 import client from '@client';
-import { Navigation, Footer } from '@components';
+import { Navigation, Footer, SEO } from '@components';
 import '../styles/index.scss';
 
 function App({ Component, pageProps, router, props }) {
-  const { navigation, footer } = props;
+  const { navigation, footer, seo } = props;
   const { pathname } = router;
 
   return (
@@ -18,6 +18,8 @@ function App({ Component, pageProps, router, props }) {
           crossOrigin="anonymous"
         ></script>
       </Head>
+
+      <SEO {...seo} />
 
       <Switch>
         <Case condition={pathname === '/explore'}>
@@ -35,6 +37,12 @@ function App({ Component, pageProps, router, props }) {
 }
 
 App.getInitialProps = async () => {
+  const seo = await client.fetch(groq`
+    *[_type == 'siteOptions']{
+      seo
+    }[0]
+  `);
+
   const navigation = await client.fetch(groq`
     *[_type == 'navigation']{
       checkpoints[] {
@@ -58,6 +66,7 @@ App.getInitialProps = async () => {
 
   return {
     props: {
+      seo,
       navigation,
       footer,
     },
