@@ -84,7 +84,7 @@
   text-align: center;
 
   @include on-focus {
-    color: $white;
+    color: $graphite;
     background-color: $green;
   }
 }
