@@ -28,7 +28,7 @@ const Touchpoints = React.forwardRef((props, ref) => {
    * this access more flexible in case we embed the
    * object in other documents.
    */
-  const imageSourceRef = get(props, 'document.image.src');
+  const imageSourceRef = get(props, 'document.scene.image.src');
 
   /**
    * Update database when touchpoints changes.

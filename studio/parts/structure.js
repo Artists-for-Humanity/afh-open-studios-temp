@@ -45,11 +45,6 @@ export default () =>
             .filter('_type == "studio"'),
         ),
 
-      S.listItem()
-        .title('Scenes')
-        .schemaType('scene')
-        .child(S.documentList().title('Scenes').filter('_type == "scene"')),
-
       S.divider(),
 
       S.listItem()
@@ -66,7 +61,6 @@ export default () =>
         (listItem) =>
           ![
             'landingPage',
-            'scene',
             'navigation',
             'seo',
             'farewellPage',

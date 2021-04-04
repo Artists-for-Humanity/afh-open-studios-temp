@@ -6,14 +6,8 @@ import Touchpoints from '../components/Touchpoints';
 export default {
   title: 'Scene',
   name: 'scene',
-  type: 'document',
+  type: 'object',
   fields: [
-    {
-      title: 'Title',
-      name: 'title',
-      type: 'string',
-      validation: required,
-    },
     {
       title: 'Image',
       name: 'image',

@@ -35,10 +35,10 @@ export default {
       of: [{ type: 'block' }],
     },
     {
-      title: 'Scenes',
-      name: 'scenes',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'scene' }] }],
+      title: 'Scene',
+      name: 'scene',
+      type: 'scene',
+      validation: required,
     },
   ],
 };
