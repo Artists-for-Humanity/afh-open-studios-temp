@@ -11,7 +11,7 @@ generators:
     position: above
 
     files:
-      - target: 'schemas/{{ name }}.js'
+      - target: 'schemas/{{ type }}/{{ name }}.js'
         template: schema.hbs
 
     inserts:

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { required } from '../utils/validation';
-import Touchpoints from '../components/Touchpoints';
+import { required } from '../../utils/validation';
+import Touchpoints from '../../components/Touchpoints';
 
 export default {
   title: 'Scene',

@@ -1,4 +1,4 @@
-import { required } from '../utils/validation';
+import { required } from '../../utils/validation';
 
 export default {
   title: 'Studio',
