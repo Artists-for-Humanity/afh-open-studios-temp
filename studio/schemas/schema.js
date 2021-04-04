@@ -24,6 +24,7 @@ export default createSchema({
     require('./navigation').default,
     require('./checkpoints').default,
     require('./siteOptions').default,
-    // temples: require('./{{ name }}').default,
+    require('./carousel').default,
+// temples: require('./{{ name }}').default,
   ]),
 });

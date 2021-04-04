@@ -25,7 +25,7 @@ export default {
       title: 'Content',
       name: 'content',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{ type: 'carousel' }],
     },
   ],
 
