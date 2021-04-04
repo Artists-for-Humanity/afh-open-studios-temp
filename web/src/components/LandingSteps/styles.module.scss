@@ -23,17 +23,23 @@
     margin-left: $sp-xxs;
   }
 
-  img {
-    width: 100%;
-  }
-
   @include mq($bp-tablet) {
+    height: 300px;
+
     &:not(:last-child) {
       margin-right: $sp-xs;
+    }
+
+    img {
+      height: 100%;
     }
   }
 
   @include mq($bp-tablet, 'max') {
     width: 100%;
+
+    img {
+      width: 100%;
+    }
   }
 }
