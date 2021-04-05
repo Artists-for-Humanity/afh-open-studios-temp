@@ -6,10 +6,18 @@ import client from '@client';
 import { Navigation, Footer, SEO } from '@components';
 import '../styles/index.scss';
 
+const NON_TOUR_ROUTES = ['/'];
+
 function App({ Component, pageProps, router, props }) {
   const { navigation, footer, siteOptions } = props;
   const { seo } = siteOptions;
   const { pathname } = router;
+
+  /**
+   * Exclude <Navigation /> if current path
+   * is in NON_TOUR_ROUTES
+   */
+  const withNavigation = !NON_TOUR_ROUTES.includes(pathname);
 
   return (
     <>
@@ -23,7 +31,7 @@ function App({ Component, pageProps, router, props }) {
       <SEO {...seo} />
 
       <Switch>
-        <Case condition={pathname === '/explore'}>
+        <Case condition={withNavigation}>
           <Navigation
             checkpoints={navigation.checkpoints}
             cta={navigation.finish_tour_cta}
