@@ -24,7 +24,7 @@
   }
 
   @include mq($bp-tablet) {
-    height: 300px;
+    height: 250px;
 
     &:not(:last-child) {
       margin-right: $sp-xs;
@@ -33,6 +33,10 @@
     img {
       height: 100%;
     }
+  }
+
+  @include mq($bp-monitor) {
+    height: 300px;
   }
 
   @include mq($bp-tablet, 'max') {
