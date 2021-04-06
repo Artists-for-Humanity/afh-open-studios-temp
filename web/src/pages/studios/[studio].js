@@ -4,13 +4,16 @@ import { useRouter } from 'next/router';
 
 import client from '@client';
 import { GROQ } from '@utils/constants';
+import { TourWrapper, StudiosSidebar } from '@components';
 import s from '../styles/studio.module.scss';
 
-const Studio = ({ title }) => {
+const Studio = ({ short_title, description }) => {
   return (
-    <div>
-      <h1>{title}</h1>
-    </div>
+    <TourWrapper
+      sidebar={<StudiosSidebar title={short_title} description={description} />}
+    >
+      <div>hello</div>
+    </TourWrapper>
   );
 };
 

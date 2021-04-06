@@ -1,0 +1,15 @@
+@import 'abstracts';
+
+.wrapper {
+  @include flex;
+  height: 100vh;
+  padding-top: $sp-md;
+}
+
+.sidebar {
+  width: 30%;
+}
+
+.content {
+  flex-grow: 1;
+}

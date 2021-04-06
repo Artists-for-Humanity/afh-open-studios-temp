@@ -1,0 +1,21 @@
+@import 'abstracts';
+
+.content {
+  @include site-padding;
+  height: 100%;
+}
+
+.title {
+  @include ff-gotham-title;
+  position: relative;
+  margin-bottom: $sp-sm;
+
+  //&::before {
+  //@include pseudo-reset;
+  //border-bottom: 1px solid $yellow;
+  //position: absolute;
+  //right: calc(100% + #{$sp-xxs});
+  //bottom: 55%;
+  //width: $sp-sm;
+  //}
+}

@@ -1,4 +1,6 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as TourWrapper } from './TourWrapper';
+export { default as StudiosSidebar } from './StudiosSidebar';
 export { default as SEO } from './SEO';
 export { default as LandingSteps } from './LandingSteps';
 export { default as LandingHero } from './LandingHero';

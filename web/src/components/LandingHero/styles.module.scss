@@ -35,7 +35,7 @@
 
   &::after {
     @include size(100%);
-    content: '';
+    @include pseudo-reset;
 
     background-color: $graphite;
     position: absolute;

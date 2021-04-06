@@ -22,7 +22,7 @@
   position: relative;
 
   &::before {
-    content: '';
+    @include pseudo-reset;
     border-bottom: 1px solid $gray;
     position: absolute;
     top: 50%;
@@ -56,7 +56,7 @@
   position: relative;
 
   &::before {
-    content: '';
+    @include pseudo-reset;
     position: absolute;
     left: 50%;
 

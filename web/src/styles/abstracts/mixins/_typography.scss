@@ -25,6 +25,11 @@
   }
 }
 
+@mixin ff-gotham-title {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
 @mixin ff-gotham-hero {
   font-size: 36px;
   line-height: 1.2;
