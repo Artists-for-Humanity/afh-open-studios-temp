@@ -11,6 +11,7 @@ body {
 body {
   @include ff-gotham-body;
   background-color: $graphite;
+  color: $white;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

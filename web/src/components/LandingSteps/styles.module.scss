@@ -2,6 +2,7 @@
 
 .container {
   @include site-padding;
+  @include padding($sp-md x);
   @include flex;
   flex-wrap: wrap;
 }
