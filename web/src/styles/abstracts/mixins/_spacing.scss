@@ -23,6 +23,6 @@
   @include padding($sp-xs);
 
   @include mq($bp-monitor) {
-    @include padding($sp-md);
+    @include padding($sp-sm);
   }
 }
