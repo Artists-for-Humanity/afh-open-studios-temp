@@ -2,6 +2,8 @@
 
 .content {
   @include site-padding;
+  @include flex(column, space-between);
+  background-color: $river-bed;
   height: 100%;
 }
 
@@ -18,4 +20,8 @@
   //bottom: 55%;
   //width: $sp-sm;
   //}
+}
+
+.aside {
+  @include ff-gotham-sub-title;
 }
