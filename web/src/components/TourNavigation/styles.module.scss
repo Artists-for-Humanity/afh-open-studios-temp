@@ -1,13 +1,11 @@
 @import 'abstracts';
 
 .container {
-  position: absolute;
-
-  top: 0;
   width: 100%;
 
   nav {
     @include flex(row, space-between);
+    height: $sp-tour-nav;
   }
 
   * {
@@ -98,6 +96,7 @@
   top: 100%;
   left: 0;
   width: 100vw;
+  height: $sp-tour-nav;
 
   background-color: $river-bed;
 

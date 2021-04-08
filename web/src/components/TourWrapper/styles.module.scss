@@ -3,13 +3,23 @@
 .wrapper {
   @include flex;
   height: 100vh;
-  padding-top: $sp-md;
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: $sp-tour-nav auto;
+  grid-template-areas:
+    'nav nav nav nav'
+    'sidebar content content content';
+}
+
+.navigation {
+  grid-area: nav;
 }
 
 .sidebar {
-  width: 30%;
+  grid-area: sidebar;
 }
 
 .content {
-  flex-grow: 1;
+  grid-area: content;
 }

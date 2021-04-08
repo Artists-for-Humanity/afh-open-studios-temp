@@ -17,9 +17,9 @@ const NestedCheckpoints = ({ checkpoints }) => {
   );
 };
 
-const Navigation = ({ checkpoints, cta }) => {
+const TourNavigation = ({ className, checkpoints, cta }) => {
   return (
-    <header className={s.container}>
+    <header className={cn(s.container, className)}>
       <nav>
         <ul className={s.checkpoints}>
           {checkpoints.map(({ title, checkpoints }, i) => (
@@ -43,4 +43,4 @@ const Navigation = ({ checkpoints, cta }) => {
   );
 };
 
-export default Navigation;
+export default TourNavigation;

@@ -1,4 +1,5 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as StudiosScene } from './StudiosScene';
 export { default as TourWrapper } from './TourWrapper';
 export { default as StudiosSidebar } from './StudiosSidebar';
 export { default as SEO } from './SEO';
@@ -8,4 +9,4 @@ export { default as Footer } from './Footer';
 export { default as Image } from './Image';
 export { default as RichText } from './RichText';
 export { default as Link } from './Link';
-export { default as Navigation } from './Navigation';
+export { default as TourNavigation } from './TourNavigation';
