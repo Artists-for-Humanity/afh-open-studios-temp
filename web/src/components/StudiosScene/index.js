@@ -1,17 +1,23 @@
 import React, { useRef, useEffect } from 'react';
 
-import { Image } from '@components';
+import { Image, TouchpointMarker } from '@components';
 import s from './styles.module.scss';
 
 const StudiosScene = ({ className, scene }) => {
   const ref = useRef();
+  const { touchpoints } = scene;
 
+  /**
+   * Scroll the scene based on
+   * cursor position relative to width
+   * of the scene.
+   */
   useEffect(() => {
     const containerEl = ref.current;
 
-    containerEl.onmousemove = ({ layerX }) => {
+    containerEl.onmousemove = ({ clientX }) => {
       const width = containerEl.offsetWidth;
-      const relativeX = layerX / width;
+      const relativeX = clientX / width;
       const containerElScrollDifference =
         containerEl.scrollWidth - containerEl.offsetWidth;
 
@@ -21,7 +27,17 @@ const StudiosScene = ({ className, scene }) => {
 
   return (
     <div className={s.scene} ref={ref}>
-      <Image className={s.image} img={scene.image} />
+      <div>
+        <Image className={s.image} img={scene.image} />
+        {touchpoints.map(({ x, y }, i) => (
+          <TouchpointMarker
+            className={s.marker}
+            style={{ left: `${x}%`, top: `${y}%` }}
+            number={i + 1}
+            key={i}
+          />
+        ))}
+      </div>
     </div>
   );
 };

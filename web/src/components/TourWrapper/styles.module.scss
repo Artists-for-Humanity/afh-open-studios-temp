@@ -6,7 +6,7 @@
   display: grid;
 
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: $sp-tour-nav auto;
+  grid-template-rows: $sp-tour-nav calc(100vh - #{$sp-tour-nav});
   grid-template-areas:
     'nav nav nav nav'
     'sidebar content content content';

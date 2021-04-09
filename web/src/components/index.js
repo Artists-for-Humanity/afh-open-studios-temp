@@ -1,4 +1,5 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as TouchpointMarker } from './TouchpointMarker';
 export { default as StudiosScene } from './StudiosScene';
 export { default as TourWrapper } from './TourWrapper';
 export { default as StudiosSidebar } from './StudiosSidebar';

@@ -1,0 +1,10 @@
+@import 'abstracts';
+
+.marker {
+  @include ff-gotham-cta;
+  @include size($sp-sm);
+
+  background-color: $yellow;
+  border-radius: 100%;
+  color: $graphite;
+}
