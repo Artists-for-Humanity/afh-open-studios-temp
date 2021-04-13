@@ -11,16 +11,35 @@ const Studio = ({ studio, navigation }) => {
   const [touchpointIndex, setTouchpointIndex] = useState(null);
   const { short_title, description, scene } = studio;
 
+  const getSceneSidebar = (i) => {
+    const { content } = scene;
+    const { title, description } = content[i];
+
+    return {
+      heading: i + 1,
+      title: title,
+      description: description,
+    };
+  };
+
   const onSelectTouchpoint = (i) => {
     setTouchpointIndex(i);
   };
 
+  const defaultSidebar = {
+    heading: short_title,
+    description,
+  };
+
+  const sidebarContent =
+    touchpointIndex === null
+      ? defaultSidebar
+      : getSceneSidebar(touchpointIndex);
+
   return (
     <TourWrapper
       navigation={navigation}
-      sidebar={
-        <StudiosSidebar heading={short_title} description={description} />
-      }
+      sidebar={<StudiosSidebar {...sidebarContent} />}
     >
       <StudiosScene scene={scene} onSelectTouchpoint={onSelectTouchpoint} />
     </TourWrapper>
