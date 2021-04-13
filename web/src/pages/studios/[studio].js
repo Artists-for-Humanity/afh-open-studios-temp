@@ -22,10 +22,6 @@ const Studio = ({ studio, navigation }) => {
     };
   };
 
-  const onSelectTouchpoint = (i) => {
-    setTouchpointIndex(i);
-  };
-
   const defaultSidebar = {
     heading: short_title,
     description,
@@ -41,7 +37,7 @@ const Studio = ({ studio, navigation }) => {
       navigation={navigation}
       sidebar={<StudiosSidebar {...sidebarContent} />}
     >
-      <StudiosScene scene={scene} onSelectTouchpoint={onSelectTouchpoint} />
+      <StudiosScene scene={scene} onSelectTouchpoint={setTouchpointIndex} />
     </TourWrapper>
   );
 };
