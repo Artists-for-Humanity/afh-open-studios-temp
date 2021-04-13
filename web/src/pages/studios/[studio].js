@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import groq from 'groq';
 import { useRouter } from 'next/router';
 
@@ -8,16 +8,19 @@ import { TourWrapper, StudiosSidebar, StudiosScene } from '@components';
 import s from '../styles/studio.module.scss';
 
 const Studio = ({ studio, navigation }) => {
+  const [touchpointIndex, setTouchpointIndex] = useState(null);
   const { short_title, description, scene } = studio;
 
   const onSelectTouchpoint = (i) => {
-    console.log(i);
+    setTouchpointIndex(i);
   };
 
   return (
     <TourWrapper
       navigation={navigation}
-      sidebar={<StudiosSidebar title={short_title} description={description} />}
+      sidebar={
+        <StudiosSidebar heading={short_title} description={description} />
+      }
     >
       <StudiosScene scene={scene} onSelectTouchpoint={onSelectTouchpoint} />
     </TourWrapper>

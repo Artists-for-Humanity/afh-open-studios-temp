@@ -7,19 +7,38 @@
   height: 100%;
 }
 
-.title {
+.heading {
   @include ff-gotham-title;
   position: relative;
   margin-bottom: $sp-sm;
+  width: fit-content;
 
-  //&::before {
-  //@include pseudo-reset;
-  //border-bottom: 1px solid $yellow;
-  //position: absolute;
-  //right: calc(100% + #{$sp-xxs});
-  //bottom: 55%;
-  //width: $sp-sm;
-  //}
+  &::before {
+    @include pseudo-reset;
+    border-bottom: 1px solid $yellow;
+    position: absolute;
+    right: calc(100% + #{$sp-xs});
+    bottom: 55%;
+    width: $sp-sm;
+  }
+
+  &::after {
+    @include pseudo-reset;
+    @include padding($sp-xxs $sp-xs);
+    border: 1px solid $yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.title {
+  @include ff-gotham-title;
+  margin-bottom: $sp-sm;
 }
 
 .aside {
