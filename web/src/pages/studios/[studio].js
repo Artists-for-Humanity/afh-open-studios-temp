@@ -10,12 +10,16 @@ import s from '../styles/studio.module.scss';
 const Studio = ({ studio, navigation }) => {
   const { short_title, description, scene } = studio;
 
+  const onSelectTouchpoint = (i) => {
+    console.log(i);
+  };
+
   return (
     <TourWrapper
       navigation={navigation}
       sidebar={<StudiosSidebar title={short_title} description={description} />}
     >
-      <StudiosScene scene={scene} />
+      <StudiosScene scene={scene} onSelectTouchpoint={onSelectTouchpoint} />
     </TourWrapper>
   );
 };

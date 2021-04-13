@@ -1,11 +1,13 @@
 import React, { useRef, useEffect } from 'react';
+import cn from 'classnames';
 
 import { Image, TouchpointMarker } from '@components';
 import s from './styles.module.scss';
 
-const StudiosScene = ({ className, scene }) => {
+const StudiosScene = ({ className, scene, onSelectTouchpoint }) => {
   const ref = useRef();
-  const { touchpoints } = scene;
+  const { touchpoints, content } = scene;
+  const touchpointsWithContent = touchpoints.slice(0, content.length);
 
   /**
    * Scroll the scene based on
@@ -26,15 +28,16 @@ const StudiosScene = ({ className, scene }) => {
   }, []);
 
   return (
-    <div className={s.scene} ref={ref}>
+    <div className={cn(s.scene, className)} ref={ref}>
       <div>
         <Image className={s.image} img={scene.image} />
-        {touchpoints.map(({ x, y }, i) => (
+        {touchpointsWithContent.map(({ x, y }, i) => (
           <TouchpointMarker
             className={s.marker}
             style={{ left: `${x}%`, top: `${y}%` }}
             number={i + 1}
             key={i}
+            onClick={() => onSelectTouchpoint(i)}
           />
         ))}
       </div>
