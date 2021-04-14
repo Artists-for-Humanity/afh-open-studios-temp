@@ -31,7 +31,11 @@ const StudiosCarousel = ({ className, images, onClose }) => {
               />
             </If>
             {images.map((_, i) => (
-              <IconButton icon="fas fa-circle" onClick={() => to(i)} />
+              <IconButton
+                className={cn(i !== curImage && s.inactive)}
+                icon="fas fa-circle"
+                onClick={() => to(i)}
+              />
             ))}
             <If condition={curImage < images.length - 1}>
               <IconButton
