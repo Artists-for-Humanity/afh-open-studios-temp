@@ -1,0 +1,20 @@
+@import 'abstracts';
+
+.container {
+  position: relative;
+
+  figcaption {
+    @include padding($sp-xs);
+    background-color: $blue;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+}

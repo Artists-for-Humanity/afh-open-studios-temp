@@ -1,6 +1,9 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as CaptionImage } from './CaptionImage';
+export { default as IconButton } from './IconButton';
 export { default as TouchpointMarker } from './TouchpointMarker';
 export { default as StudiosScene } from './StudiosScene';
+export { default as StudiosCarousel } from './StudiosCarousel';
 export { default as TourWrapper } from './TourWrapper';
 export { default as StudiosSidebar } from './StudiosSidebar';
 export { default as SEO } from './SEO';

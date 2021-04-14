@@ -4,7 +4,12 @@ import { useRouter } from 'next/router';
 
 import client from '@client';
 import { GROQ } from '@utils/constants';
-import { TourWrapper, StudiosSidebar, StudiosScene } from '@components';
+import {
+  TourWrapper,
+  StudiosSidebar,
+  StudiosScene,
+  StudiosCarousel,
+} from '@components';
 import s from '../styles/studio.module.scss';
 
 const Studio = ({ studio, navigation }) => {
@@ -32,12 +37,21 @@ const Studio = ({ studio, navigation }) => {
       ? defaultSidebar
       : getSceneSidebar(touchpointIndex);
 
+  const onClose = () => setTouchpointIndex(null);
+
   return (
     <TourWrapper
       navigation={navigation}
       sidebar={<StudiosSidebar {...sidebarContent} />}
     >
       <StudiosScene scene={scene} onSelectTouchpoint={setTouchpointIndex} />
+      {touchpointIndex !== null && (
+        <StudiosCarousel
+          className={s.carousel}
+          images={scene.content[touchpointIndex].images}
+          onClose={onClose}
+        />
+      )}
     </TourWrapper>
   );
 };

@@ -1,0 +1,6 @@
+@import 'abstracts';
+
+.icon {
+  @include size(100%);
+  color: $white;
+}
