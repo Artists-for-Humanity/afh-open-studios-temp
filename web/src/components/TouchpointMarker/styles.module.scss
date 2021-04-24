@@ -1,8 +1,8 @@
 @import 'abstracts';
 
 .marker {
-  @include ff-gotham-cta;
-  @include size($sp-sm);
+  @include ff-gotham-sub-title;
+  @include size($sp-sm-md);
 
   background-color: $yellow;
   border-radius: 100%;
