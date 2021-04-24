@@ -6,7 +6,7 @@ import s from './styles.module.scss';
 
 const StudiosScene = ({ className, scene, onSelectTouchpoint }) => {
   const ref = useRef();
-  const { touchpoints, content } = scene;
+  const { touchpoints, content = [] } = scene;
   const touchpointsWithContent = touchpoints.slice(0, content.length);
 
   /**
@@ -17,9 +17,11 @@ const StudiosScene = ({ className, scene, onSelectTouchpoint }) => {
   useEffect(() => {
     const containerEl = ref.current;
 
-    containerEl.onmousemove = ({ clientX }) => {
-      const width = containerEl.offsetWidth;
-      const relativeX = clientX / width;
+    containerEl.onmousemove = (e) => {
+      const offsetX = Math.abs(e.offsetX);
+      const width = containerEl.scrollWidth;
+      const relativeX = offsetX / width;
+
       const containerElScrollDifference =
         containerEl.scrollWidth - containerEl.offsetWidth;
 
