@@ -1,4 +1,5 @@
 import React from 'react';
+import { If } from 'react-if';
 import cn from 'classnames';
 import isEmpty from 'lodash.isempty';
 
@@ -11,7 +12,9 @@ const StudiosSidebar = ({ className, heading, title, description }) => {
       <div>
         {heading && <h1 className={s.heading}>{heading}</h1>}
         {title && <h2 className={s.title}>{title}</h2>}
-        {!isEmpty(description) && <RichText blocks={description} />}
+        <If condition={!isEmpty(description)}>
+          <RichText blocks={description} />
+        </If>
       </div>
       <aside className={s.aside}>
         <p>

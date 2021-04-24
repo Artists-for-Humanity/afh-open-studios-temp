@@ -1,5 +1,7 @@
 @import 'abstracts';
 
+$h-padding: $sp-xxs-xs;
+
 .content {
   @include site-padding;
   @include flex(column, space-between);
@@ -12,19 +14,20 @@
   position: relative;
   margin-bottom: $sp-sm;
   width: fit-content;
+  text-transform: uppercase;
 
   &::before {
     @include pseudo-reset;
     border-bottom: 1px solid $yellow;
     position: absolute;
-    right: calc(100% + #{$sp-xs});
+    right: calc(100% + #{$h-padding});
     bottom: 55%;
     width: $sp-sm;
   }
 
   &::after {
     @include pseudo-reset;
-    @include padding($sp-xxs $sp-xs);
+    @include padding($sp-xxs $h-padding);
     border: 1px solid $yellow;
     position: absolute;
     top: 50%;
