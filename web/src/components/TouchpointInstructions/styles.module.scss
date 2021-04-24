@@ -1,0 +1,13 @@
+@import 'abstracts';
+
+.aside {
+  @include ff-gotham-sub-title;
+  @include flex(column, center, center);
+
+  border-top: 1px solid $black;
+  padding-top: $sp-sm;
+
+  p {
+    @include site-padding;
+  }
+}

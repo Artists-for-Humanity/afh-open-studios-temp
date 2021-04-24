@@ -1,4 +1,5 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as TouchpointInstructions } from './TouchpointInstructions';
 export { default as CaptionImage } from './CaptionImage';
 export { default as IconButton } from './IconButton';
 export { default as TouchpointMarker } from './TouchpointMarker';

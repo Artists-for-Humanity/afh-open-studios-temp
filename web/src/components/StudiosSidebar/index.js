@@ -3,7 +3,7 @@ import { If } from 'react-if';
 import cn from 'classnames';
 import isEmpty from 'lodash.isempty';
 
-import { RichText } from '@components';
+import { RichText, TouchpointInstructions } from '@components';
 import s from './styles.module.scss';
 
 const StudiosSidebar = ({ className, heading, title, description }) => {
@@ -16,11 +16,7 @@ const StudiosSidebar = ({ className, heading, title, description }) => {
           <RichText blocks={description} />
         </If>
       </div>
-      <aside className={s.aside}>
-        <p>
-          Click on touch points to interact with different areas of the studio.
-        </p>
-      </aside>
+      <TouchpointInstructions />
     </div>
   );
 };

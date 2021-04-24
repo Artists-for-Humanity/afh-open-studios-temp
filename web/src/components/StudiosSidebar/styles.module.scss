@@ -3,10 +3,14 @@
 $h-padding: $sp-xxs-xs;
 
 .content {
-  @include site-padding;
   @include flex(column, space-between);
   background-color: $river-bed;
   height: 100%;
+
+  > div {
+    @include site-padding;
+    overflow-y: scroll;
+  }
 }
 
 .heading {
@@ -42,8 +46,4 @@ $h-padding: $sp-xxs-xs;
 .title {
   @include ff-gotham-title;
   margin-bottom: $sp-sm;
-}
-
-.aside {
-  @include ff-gotham-sub-title;
 }
