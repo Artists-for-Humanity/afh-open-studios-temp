@@ -17,6 +17,7 @@ $h-padding: $sp-xxs-xs;
   @include ff-gotham-title;
   position: relative;
   margin-bottom: $sp-sm;
+  margin-left: $h-padding;
   width: fit-content;
   text-transform: uppercase;
 
@@ -26,7 +27,7 @@ $h-padding: $sp-xxs-xs;
     position: absolute;
     right: calc(100% + #{$h-padding});
     bottom: 55%;
-    width: $sp-sm;
+    width: $sp-md;
   }
 
   &::after {
