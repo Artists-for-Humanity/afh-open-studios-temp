@@ -12,6 +12,22 @@ import {
 } from '@components';
 import s from '../styles/studio.module.scss';
 
+const StudioContentController = ({ content, onClose }) => {
+  const type = content._type;
+
+  if (type === 'carousel') {
+    return (
+      <StudiosCarousel
+        className={s.carousel}
+        images={content.images}
+        onClose={onClose}
+      />
+    );
+  }
+
+  return null;
+};
+
 const Studio = ({ studio, navigation }) => {
   const [touchpointIndex, setTouchpointIndex] = useState(null);
   const { short_title, description, scene } = studio;
@@ -46,9 +62,8 @@ const Studio = ({ studio, navigation }) => {
     >
       <StudiosScene scene={scene} onSelectTouchpoint={setTouchpointIndex} />
       {touchpointIndex !== null && (
-        <StudiosCarousel
-          className={s.carousel}
-          images={scene.content[touchpointIndex].images}
+        <StudioContentController
+          content={scene.content[touchpointIndex]}
           onClose={onClose}
         />
       )}
