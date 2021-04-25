@@ -25,7 +25,7 @@ export default {
       title: 'Content',
       name: 'content',
       type: 'array',
-      of: [{ type: 'carousel' }],
+      of: [{ type: 'carousel' }, { type: 'capsule_videos' }],
     },
   ],
 

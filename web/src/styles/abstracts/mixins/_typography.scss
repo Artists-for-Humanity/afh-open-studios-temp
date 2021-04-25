@@ -10,8 +10,8 @@
 
 @mixin ff-gotham-body {
   @extend %ff-set;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 @mixin ff-gotham-cta {
@@ -32,7 +32,7 @@
 }
 
 @mixin ff-gotham-title {
-  font-size: 36px;
+  font-size: 32px;
   line-height: 1.2;
 }
 

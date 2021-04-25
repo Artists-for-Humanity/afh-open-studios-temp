@@ -25,6 +25,7 @@ export default createSchema({
     require('./object/checkpoints').default,
     require('./document/siteOptions').default,
     require('./object/carousel').default,
-    // temples: require('./{{ type }}/{{ name }}').default,
+    require('./object/capsuleVideos').default,
+// temples: require('./{{ type }}/{{ name }}').default,
   ]),
 });
