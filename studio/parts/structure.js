@@ -20,6 +20,14 @@ export default () =>
                 ),
 
               S.listItem()
+                .title('Introduction')
+                .child(
+                  S.editor()
+                    .schemaType('introduction')
+                    .documentId('introduction'),
+                ),
+
+              S.listItem()
                 .title('Farewell')
                 .child(
                   S.editor()
@@ -61,6 +69,7 @@ export default () =>
         (listItem) =>
           ![
             'landingPage',
+            'introduction',
             'navigation',
             'seo',
             'farewellPage',
