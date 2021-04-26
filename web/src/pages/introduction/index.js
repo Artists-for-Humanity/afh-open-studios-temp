@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import get from 'lodash.get';
 import groq from 'groq';
 
 import client from '@client';
-import { TourWrapper, IntroductionSidebar } from '@components';
+import { TourWrapper, IntroductionSidebar, VideoPlayer } from '@components';
 import s from '../styles/introduction.module.scss';
 
 const Introduction = ({ navigation, introduction }) => {
+  const [videoEnded, setVideoEnded] = useState(false);
+
+  const onEnded = () => setVideoEnded(true);
+
   return (
     <TourWrapper
       navigation={navigation}
-      sidebar={<IntroductionSidebar {...introduction} />}
-    ></TourWrapper>
+      sidebar={
+        <IntroductionSidebar
+          {...introduction}
+          cta={videoEnded ? introduction.cta : null}
+        />
+      }
+    >
+      <VideoPlayer
+        url={get(introduction, 'introduction_video.asset.url')}
+        onEnded={onEnded}
+      />
+    </TourWrapper>
   );
 };
 
