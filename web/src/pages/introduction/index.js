@@ -2,11 +2,16 @@ import React from 'react';
 import groq from 'groq';
 import client from '@client';
 
-import { TourWrapper } from '@components';
+import { TourWrapper, IntroductionSidebar } from '@components';
 import s from '../styles/introduction.module.scss';
 
 const Introduction = ({ navigation, introduction }) => {
-  return <TourWrapper navigation={navigation} sidebar={null}></TourWrapper>;
+  return (
+    <TourWrapper
+      navigation={navigation}
+      sidebar={<IntroductionSidebar {...introduction} />}
+    ></TourWrapper>
+  );
 };
 
 export const getServerSideProps = async () => {

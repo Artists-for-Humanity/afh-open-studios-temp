@@ -74,14 +74,12 @@
 }
 
 .cta {
-  @include padding($sp-xs $sp-sm);
-  @include ff-gotham-cta;
+  @include pill;
 
-  color: $green;
   border: 1px solid $green;
-  border-radius: 50px;
+  background-color: transparent;
+  color: $green;
   height: fit-content;
-  text-align: center;
 
   @include on-focus {
     color: $graphite;

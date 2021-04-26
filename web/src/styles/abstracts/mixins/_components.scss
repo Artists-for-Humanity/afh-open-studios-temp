@@ -1,0 +1,10 @@
+@mixin pill {
+  @include ff-gotham-cta;
+  @include padding($sp-xs $sp-sm);
+
+  background-color: $green;
+  border-radius: 50px;
+  color: $black;
+  width: fit-content;
+  text-align: center;
+}
