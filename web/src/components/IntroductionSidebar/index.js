@@ -15,9 +15,11 @@ const IntroductionSidebar = ({ className, title, description, cta }) => {
           <RichText blocks={description} />
         </If>
       </div>
-      <Link className={s.cta} href="/studios">
-        {cta}
-      </Link>
+      <If condition={cta}>
+        <Link className={s.cta} href="/studios">
+          {cta}
+        </Link>
+      </If>
     </div>
   );
 };

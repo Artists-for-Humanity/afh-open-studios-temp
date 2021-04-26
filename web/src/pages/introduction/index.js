@@ -1,7 +1,7 @@
 import React from 'react';
 import groq from 'groq';
-import client from '@client';
 
+import client from '@client';
 import { TourWrapper, IntroductionSidebar } from '@components';
 import s from '../styles/introduction.module.scss';
 
@@ -19,7 +19,7 @@ export const getServerSideProps = async () => {
     *[_type == 'introduction'][0]{
       title,
       description,
-      introduction_video,
+      introduction_video{ asset->{ url } },
       cta
     }
   `);
