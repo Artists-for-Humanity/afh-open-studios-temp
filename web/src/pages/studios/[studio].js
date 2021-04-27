@@ -8,6 +8,7 @@ import client from '@client';
 import { GROQ } from '@utils/constants';
 import {
   TourWrapper,
+  Closable,
   StudiosSidebar,
   StudiosScene,
   StudiosCarousel,
@@ -73,7 +74,11 @@ const StudioContentController = ({ content, onClose, passthrough }) => {
     );
   }
 
-  return <VideoPlayer className={s.studioContent} url={passthrough} />;
+  return (
+    <Closable onClose={onClose}>
+      <VideoPlayer className={s.studioContent} url={passthrough} />
+    </Closable>
+  );
 };
 
 const Studio = ({ studio, navigation }) => {

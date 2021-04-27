@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { If } from 'react-if';
 import cn from 'classnames';
 
-import { IconButton, CaptionImage } from '@components';
+import { IconButton, CaptionImage, Closable } from '@components';
 import s from './styles.module.scss';
 
 const StudiosCarousel = ({ className, images, onClose }) => {
@@ -13,11 +13,7 @@ const StudiosCarousel = ({ className, images, onClose }) => {
   const to = (i) => setCurImage(i);
 
   return (
-    <div className={cn(s.container, className)}>
-      <button className={s.close} onClick={onClose}>
-        <i className="fas fa-times" />
-      </button>
-
+    <Closable className={className} onClose={onClose}>
       <div className={s.carousel}>
         <CaptionImage className={s.image} img={images[curImage]} />
         <If condition={images.length > 1}>
@@ -47,7 +43,7 @@ const StudiosCarousel = ({ className, images, onClose }) => {
           </nav>
         </If>
       </div>
-    </div>
+    </Closable>
   );
 };
 

@@ -1,4 +1,5 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as Closable } from './Closable';
 export { default as VideoPlayer } from './VideoPlayer';
 export { default as IntroductionSidebar } from './IntroductionSidebar';
 export { default as TouchpointInstructions } from './TouchpointInstructions';

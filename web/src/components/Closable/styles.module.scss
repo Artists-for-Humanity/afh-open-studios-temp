@@ -1,0 +1,18 @@
+@import 'abstracts';
+
+.container {
+  @include size(100%);
+  background-color: $graphite-80;
+}
+
+.close {
+  @include size($sp-md);
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  i {
+    @include ff-gotham-title;
+    color: $green;
+  }
+}

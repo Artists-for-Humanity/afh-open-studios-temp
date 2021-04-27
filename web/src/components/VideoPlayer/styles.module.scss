@@ -3,6 +3,7 @@
 .container {
   @include size(100%);
   position: relative;
+  background-color: $graphite-80;
 }
 
 .play {
