@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 import { If } from 'react-if';
 import Player from 'react-player';
+
 import s from './styles.module.scss';
 
 const VideoPlayer = ({ className, url, ...props }) => {
   const [started, setStarted] = useState(false);
 
   return (
-    <div className={s.container}>
+    <div className={cn(s.container, className)}>
       <Player
         url={url}
         width="100%"

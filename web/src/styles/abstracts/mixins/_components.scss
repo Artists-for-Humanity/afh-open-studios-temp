@@ -1,4 +1,4 @@
-@mixin pill {
+@mixin pill($secondary: false) {
   @include ff-gotham-cta;
   @include padding($sp-xs $sp-sm);
 
@@ -7,4 +7,15 @@
   color: $black;
   width: fit-content;
   text-align: center;
+
+  @if $secondary {
+    background-color: transparent;
+    border: 1px solid $white;
+    color: $white;
+
+    @include on-focus {
+      background-color: $green;
+      color: $black;
+    }
+  }
 }

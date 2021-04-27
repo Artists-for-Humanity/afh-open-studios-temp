@@ -6,7 +6,13 @@ import isEmpty from 'lodash.isempty';
 import { RichText, TouchpointInstructions } from '@components';
 import s from './styles.module.scss';
 
-const StudiosSidebar = ({ className, heading, title, description }) => {
+const StudiosSidebar = ({
+  className,
+  heading,
+  title,
+  description,
+  children,
+}) => {
   return (
     <div className={cn(s.content, className)}>
       <div>
@@ -15,6 +21,8 @@ const StudiosSidebar = ({ className, heading, title, description }) => {
         <If condition={!isEmpty(description)}>
           <RichText blocks={description} />
         </If>
+
+        <If condition={children}>{children}</If>
       </div>
       <TouchpointInstructions />
     </div>

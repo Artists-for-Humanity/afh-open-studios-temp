@@ -1,6 +1,20 @@
 @import 'abstracts';
 
-.carousel {
+.studioContent {
   top: 0;
   position: absolute;
+}
+
+.prompts {
+  margin-top: $sp-sm;
+
+  li button {
+    @include pill(true);
+    margin-top: $sp-xxs;
+
+    &.active {
+      background-color: $green;
+      color: $black;
+    }
+  }
 }
