@@ -14,7 +14,7 @@ import {
   StudiosCarousel,
   VideoPlayer,
 } from '@components';
-import s from '../styles/studio.module.scss';
+import s from '../styles/studios-studio.module.scss';
 
 const StudioSidebarController = ({ index, content, setPassthrough }) => {
   const [curPrompt, setCurPrompt] = useState(0);
