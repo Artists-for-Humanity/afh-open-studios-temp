@@ -14,7 +14,7 @@ const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
         backgrounds={background_images}
         logo={logo}
       />
-      <Link className={s.cta} href="/explore">
+      <Link className={s.cta} href="/introduction">
         {cta}
       </Link>
       <LandingSteps steps={steps} />
