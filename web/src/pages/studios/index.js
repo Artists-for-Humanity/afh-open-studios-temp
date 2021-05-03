@@ -2,7 +2,7 @@ import React from 'react';
 import groq from 'groq';
 
 import client from '@client';
-import { TourWrapper, StudiosSidebar, Link } from '@components';
+import { TourWrapper, StudiosSidebar, StudiosTable, Link } from '@components';
 import { getAttrFromFirst } from '@utils';
 import s from '../styles/studios.module.scss';
 
@@ -20,7 +20,9 @@ const Studios = ({ studios, allStudios, navigation }) => {
           </Link>
         </StudiosSidebar>
       }
-    ></TourWrapper>
+    >
+      <StudiosTable studios={allStudios} />
+    </TourWrapper>
   );
 };
 
