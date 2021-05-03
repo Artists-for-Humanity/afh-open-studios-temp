@@ -1,12 +1,9 @@
 import { required } from '../../utils/validation';
 
 export default {
-  title: 'Introduction',
-  name: 'introduction',
+  title: 'Studios',
+  name: 'studiosPage',
   type: 'document',
-  initialValue: {
-    cta: 'Explore Studios',
-  },
   fields: [
     {
       title: 'Title',
@@ -15,20 +12,11 @@ export default {
       validation: required,
     },
     {
-      title: 'Description',
-      name: 'description',
-      type: 'richText',
-    },
-    {
-      title: 'Introduction Video',
-      name: 'introduction_video',
-      type: 'file',
-      validation: required,
-    },
-    {
       title: 'Call to Action',
       name: 'cta',
       type: 'string',
+      description:
+        'Recommended to encourage visitors to start with the first studio.',
       validation: required,
     },
   ],

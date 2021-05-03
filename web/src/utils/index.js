@@ -13,7 +13,15 @@ import client from '@client';
  * @return {any}
  */
 export function getAttrFromFirst(l, attr) {
-  return get(l, `0.${attr}`);
+  for (const el of l) {
+    const attribute = get(el, attr);
+
+    if (attr) {
+      return attribute;
+    }
+  }
+
+  return null;
 }
 
 /**

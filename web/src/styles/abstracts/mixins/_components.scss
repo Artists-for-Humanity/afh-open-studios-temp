@@ -1,6 +1,7 @@
 @mixin pill($secondary: false) {
   @include ff-gotham-cta;
-  @include padding($sp-xs $sp-sm);
+  @include padding($sp-xs $sp-xs);
+  display: block;
 
   background-color: $green;
   border-radius: 50px;

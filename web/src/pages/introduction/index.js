@@ -31,7 +31,7 @@ const Introduction = ({ navigation, introduction }) => {
 
 export const getServerSideProps = async () => {
   const introduction = await client.fetch(groq`
-    *[_type == 'introduction'][0]{
+    *[_type == 'introductionPage'][0]{
       title,
       description,
       introduction_video{ asset->{ url } },

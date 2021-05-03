@@ -23,8 +23,16 @@ export default () =>
                 .title('Introduction')
                 .child(
                   S.editor()
-                    .schemaType('introduction')
-                    .documentId('introduction'),
+                    .schemaType('introductionPage')
+                    .documentId('introductionPage'),
+                ),
+
+              S.listItem()
+                .title('Studios')
+                .child(
+                  S.editor()
+                    .schemaType('studiosPage')
+                    .documentId('studiosPage'),
                 ),
 
               S.listItem()
@@ -69,7 +77,8 @@ export default () =>
         (listItem) =>
           ![
             'landingPage',
-            'introduction',
+            'introductionPage',
+            'studiosPage',
             'navigation',
             'seo',
             'farewellPage',

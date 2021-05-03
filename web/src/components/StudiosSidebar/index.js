@@ -12,6 +12,7 @@ const StudiosSidebar = ({
   title,
   description,
   children,
+  hideInstructions = false,
 }) => {
   return (
     <div className={cn(s.content, className)}>
@@ -24,7 +25,9 @@ const StudiosSidebar = ({
 
         <If condition={children}>{children}</If>
       </div>
-      <TouchpointInstructions />
+      <If condition={!hideInstructions}>
+        <TouchpointInstructions />
+      </If>
     </div>
   );
 };
