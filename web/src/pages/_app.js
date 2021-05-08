@@ -1,11 +1,8 @@
-import Head from 'next/head';
 import groq from 'groq';
 
 import client from '@client';
 import { Footer, SEO } from '@components';
 import '../styles/index.scss';
-
-const NON_TOUR_ROUTES = ['/'];
 
 function App({ Component, pageProps, router, props }) {
   const { footer, siteOptions } = props;
@@ -13,13 +10,6 @@ function App({ Component, pageProps, router, props }) {
 
   return (
     <>
-      <Head>
-        <script
-          src="https://kit.fontawesome.com/f9c2d11971.js"
-          crossOrigin="anonymous"
-        ></script>
-      </Head>
-
       <SEO {...seo} />
 
       <Component {...pageProps} siteOptions={siteOptions} />
