@@ -19,22 +19,20 @@ function App({ Component, pageProps, router, props }) {
 }
 
 App.getInitialProps = async () => {
-  const siteOptions = await client.fetch(groq`
-    *[_type == 'siteOptions']{
+  const { siteOptions, footer } = await client.fetch(groq`{
+    "siteOptions": *[_type == 'siteOptions']{
       logo,
       seo
-    }[0]
-  `);
+    }[0],
 
-  const footer = await client.fetch(groq`
-    *[_type == 'footer']{
+    "footer": *[_type == 'footer']{
       about,
       contact,
       copyright,
       ctaLink,
       socialMediaLinks
     }[0]
-  `);
+  }`);
 
   return {
     props: {

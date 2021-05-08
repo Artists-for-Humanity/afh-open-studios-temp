@@ -30,17 +30,15 @@ const Introduction = ({ navigation, introduction }) => {
 };
 
 export const getServerSideProps = async () => {
-  const introduction = await client.fetch(groq`
-    *[_type == 'introductionPage'][0]{
+  const { introduction, navigation } = await client.fetch(groq`{
+    "introduction": *[_type == 'introductionPage'][0]{
       title,
       description,
       introduction_video{ asset->{ url } },
       cta
-    }
-  `);
+    },
 
-  const navigation = await client.fetch(groq`
-    *[_type == 'navigation']{
+    "navigation": *[_type == 'navigation']{
       checkpoints[] {
         _type,
         title,
@@ -48,7 +46,7 @@ export const getServerSideProps = async () => {
       },
       finish_tour_cta
     }[0]
-  `);
+  }`);
 
   return {
     props: {

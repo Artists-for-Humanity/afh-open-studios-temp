@@ -27,25 +27,21 @@ const Studios = ({ studios, allStudios, navigation }) => {
 };
 
 export const getServerSideProps = async () => {
-  const studios = await client.fetch(groq`
-    *[_type == 'studiosPage'][0]{
+  const { studios, allStudios, navigation } = await client.fetch(groq`{
+    "studios": *[_type == 'studiosPage'][0]{
       title,
       cta
-    }
-  `);
+    },
 
-  const allStudios = await client.fetch(groq`
-    *[_type == 'studio'] {
+    "allStudios": *[_type == 'studio'] {
       short_title,
       slug,
       scene {
         image
       }
-    }
-  `);
+    },
 
-  const navigation = await client.fetch(groq`
-    *[_type == 'navigation']{
+    "navigation": *[_type == 'navigation']{
       checkpoints[] {
         _type,
         title,
@@ -53,7 +49,7 @@ export const getServerSideProps = async () => {
       },
       finish_tour_cta
     }[0]
-  `);
+  }`);
 
   return {
     props: {
