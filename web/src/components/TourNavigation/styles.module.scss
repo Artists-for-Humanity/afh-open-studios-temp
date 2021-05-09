@@ -98,6 +98,21 @@
   color: $yellow;
 }
 
+%nested-link-focus {
+  color: $yellow;
+
+  &::after {
+    @include pseudo-reset;
+    position: absolute;
+
+    background-color: $yellow;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+  }
+}
+
 .nested {
   @include hidden;
   @include flex;
@@ -116,18 +131,7 @@
 
     @include on-focus {
       li {
-        color: $yellow;
-
-        &::after {
-          @include pseudo-reset;
-          position: absolute;
-
-          background-color: $yellow;
-          width: 100%;
-          height: 4px;
-          bottom: 0;
-          left: 0;
-        }
+        @extend %nested-link-focus;
       }
     }
   }
@@ -137,18 +141,7 @@
     width: fit-content;
 
     &.currentPath {
-      color: $yellow;
-
-      &::after {
-        @include pseudo-reset;
-        position: absolute;
-
-        background-color: $yellow;
-        width: 100%;
-        height: 4px;
-        bottom: 0;
-        left: 0;
-      }
+      @extend %nested-link-focus;
     }
   }
 }
