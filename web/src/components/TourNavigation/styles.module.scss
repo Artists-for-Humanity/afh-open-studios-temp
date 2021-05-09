@@ -34,6 +34,7 @@
   li {
     @include padding($sp-xs-sm $sp-sm);
     @include flex(column, center);
+    @include uppercase;
     height: 100%;
   }
 
@@ -81,6 +82,7 @@
       @include visible;
     }
   }
+  @include uppercase;
 
   background-color: $graphite;
   border-left: 1px solid $gray;

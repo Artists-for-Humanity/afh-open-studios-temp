@@ -15,11 +15,11 @@ $h-padding: $sp-xxs-xs;
 
 .heading {
   @include ff-gotham-title;
+  @include uppercase;
   position: relative;
   margin-bottom: $sp-sm;
   margin-left: $h-padding;
   width: fit-content;
-  text-transform: uppercase;
 
   &::before {
     @include pseudo-reset;

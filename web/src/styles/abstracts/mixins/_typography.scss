@@ -1,3 +1,7 @@
+@mixin uppercase {
+  text-transform: uppercase;
+}
+
 %ff-set {
   font-family: 'Gotham', Helvetica, sans-serif;
 }
@@ -17,8 +21,8 @@
 @mixin ff-gotham-cta {
   @extend %ff-set;
   @include ff-gotham-body;
+  @include uppercase;
   font-weight: bold;
-  text-transform: uppercase;
 
   @include mq($bp-tablet, 'max') {
     @include ff-gotham-sub-body;
@@ -37,9 +41,9 @@
 }
 
 @mixin ff-gotham-hero {
+  @include uppercase;
   font-size: 36px;
   line-height: 1.2;
-  text-transform: uppercase;
 
   @include mq($bp-tablet) {
     font-size: 72px;
