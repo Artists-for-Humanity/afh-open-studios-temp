@@ -117,8 +117,8 @@ const Studio = ({ studio, navigation }) => {
 };
 
 export const getServerSideProps = async ({ query }) => {
-  const { studio, navigation } = await client.fetch(groq`{
-    "studio": *[_type == 'studio'
+  const studio = await client.fetch(groq`
+    *[_type == 'studio'
       && slug.current == '${query.studio}'
       && ${GROQ.EXCLUDE_DRAFTS}]{
         title,
@@ -137,23 +137,13 @@ export const getServerSideProps = async ({ query }) => {
           },
           ...
         }
-      }[0],
-
-    "navigation": *[_type == 'navigation']{
-      checkpoints[] {
-        _type,
-        title,
-        checkpoints[]->
-      },
-      finish_tour_cta
-    }[0]
-  }`);
+      }[0]
+  `);
 
   return {
     notFound: !studio,
     props: {
       studio,
-      navigation,
     },
   };
 };

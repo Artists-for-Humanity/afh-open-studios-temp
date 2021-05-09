@@ -27,7 +27,7 @@ const Studios = ({ studios, allStudios, navigation }) => {
 };
 
 export const getServerSideProps = async () => {
-  const { studios, allStudios, navigation } = await client.fetch(groq`{
+  const { studios, allStudios } = await client.fetch(groq`{
     "studios": *[_type == 'studiosPage'][0]{
       title,
       cta
@@ -40,21 +40,11 @@ export const getServerSideProps = async () => {
         image
       }
     },
-
-    "navigation": *[_type == 'navigation']{
-      checkpoints[] {
-        _type,
-        title,
-        checkpoints[]->
-      },
-      finish_tour_cta
-    }[0]
   }`);
 
   return {
     props: {
       studios,
-      navigation,
       allStudios,
     },
   };
