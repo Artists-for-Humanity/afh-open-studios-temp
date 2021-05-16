@@ -1,3 +1,5 @@
+import { required } from '../../utils/validation';
+
 export default {
   title: 'Gallery',
   name: 'galleryPage',
@@ -7,6 +9,7 @@ export default {
       title: 'Title',
       name: 'title',
       type: 'string',
+      validation: required,
     },
     {
       title: 'Description',
@@ -18,6 +21,7 @@ export default {
       name: 'carousel',
       type: 'array',
       of: [{ type: 'richImage' }],
+      validation: required,
     },
   ],
 };
