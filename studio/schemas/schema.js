@@ -28,6 +28,7 @@ export default createSchema({
     require('./object/capsuleVideos').default,
     require('./document/introductionPage').default,
     require('./document/studiosPage').default,
+require('./document/galleryPage').default,
 // temples: require('./{{ type }}/{{ name }}').default,
   ]),
 });

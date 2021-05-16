@@ -36,6 +36,14 @@ export default () =>
                 ),
 
               S.listItem()
+                .title('Gallery')
+                .child(
+                  S.editor()
+                    .schemaType('galleryPage')
+                    .documentId('galleryPage'),
+                ),
+
+              S.listItem()
                 .title('Farewell')
                 .child(
                   S.editor()
