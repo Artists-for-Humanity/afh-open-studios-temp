@@ -1,0 +1,19 @@
+@import 'abstracts';
+
+.sidebar {
+  @include site-padding;
+  @include flex(column, space-between);
+
+  background-color: $river-bed;
+  height: 100%;
+
+  h1 {
+    @include ff-gotham-title;
+    margin-bottom: $sp-sm;
+  }
+}
+
+.cta {
+  @include pill;
+  align-self: center;
+}
