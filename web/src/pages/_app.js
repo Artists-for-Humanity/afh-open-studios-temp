@@ -18,6 +18,7 @@ function App({ Component, pageProps, router, props }) {
         siteOptions={siteOptions}
         navigation={navigation}
       />
+
       <Footer {...footer} />
     </>
   );
