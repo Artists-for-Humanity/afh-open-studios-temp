@@ -2,16 +2,16 @@ import React from 'react';
 import groq from 'groq';
 
 import client from '@client';
-import { TourWrapper, IntroductionSidebar, StudiosCarousel } from '@components';
+import { TourWrapper, Sidebar, GalleryCarousel } from '@components';
 import s from './styles/gallery.module.scss';
 
 const Gallery = ({ navigation, gallery }) => {
   return (
     <TourWrapper
       navigation={navigation}
-      sidebar={<IntroductionSidebar {...gallery} cta="End Tour" />}
+      sidebar={<Sidebar {...gallery} cta="End Tour" ctaHref="/end" />}
     >
-      <StudiosCarousel images={gallery.carousel} />
+      <GalleryCarousel images={gallery.carousel} />
     </TourWrapper>
   );
 };

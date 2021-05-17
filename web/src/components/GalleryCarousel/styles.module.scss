@@ -1,0 +1,32 @@
+@import 'abstracts';
+
+.carousel {
+  width: 100%;
+  height: 100%;
+
+  nav {
+    @include flex(row, center, center);
+    margin-top: $sp-xs;
+  }
+}
+
+.image {
+  width: 100%;
+  height: calc(100% - 60px);
+
+  img {
+    @include size(100%);
+    object-fit: cover;
+  }
+}
+
+.inactive {
+  opacity: 0.5;
+}
+
+.stepper {
+  i {
+    font-size: 24px;
+    color: $green;
+  }
+}
