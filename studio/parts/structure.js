@@ -1,63 +1,24 @@
 import S from '@sanity/desk-tool/structure-builder';
+import { GrDocument } from 'react-icons/gr';
+import { BsFillGearFill } from 'react-icons/bs';
 
 export default () =>
   S.list()
     .title('Content')
     .items([
       S.listItem()
-        .title('Pages')
-        .child(
-          S.list()
-            .title('Pages')
-            .showIcons(false)
-            .items([
-              S.listItem()
-                .title('Landing')
-                .child(
-                  S.editor()
-                    .schemaType('landingPage')
-                    .documentId('landingPage'),
-                ),
-
-              S.listItem()
-                .title('Introduction')
-                .child(
-                  S.editor()
-                    .schemaType('introductionPage')
-                    .documentId('introductionPage'),
-                ),
-
-              S.listItem()
-                .title('Studios')
-                .child(
-                  S.editor()
-                    .schemaType('studiosPage')
-                    .documentId('studiosPage'),
-                ),
-
-              S.listItem()
-                .title('Gallery')
-                .child(
-                  S.editor()
-                    .schemaType('galleryPage')
-                    .documentId('galleryPage'),
-                ),
-
-              S.listItem()
-                .title('Farewell')
-                .child(
-                  S.editor()
-                    .schemaType('farewellPage')
-                    .documentId('farewellPage'),
-                ),
-            ]),
-        ),
-
-      S.divider(),
+        .title('Landing')
+        .icon(GrDocument)
+        .child(S.editor().schemaType('landingPage').documentId('landingPage')),
 
       S.listItem()
-        .title('Navigation')
-        .child(S.editor().schemaType('navigation').documentId('navigation')),
+        .title('Introduction')
+        .icon(GrDocument)
+        .child(
+          S.editor()
+            .schemaType('introductionPage')
+            .documentId('introductionPage'),
+        ),
 
       S.listItem()
         .title('Studios')
@@ -69,14 +30,21 @@ export default () =>
             .filter('_type == "studio"'),
         ),
 
+      S.listItem()
+        .title('Gallery')
+        .icon(GrDocument)
+        .child(S.editor().schemaType('galleryPage').documentId('galleryPage')),
+
       S.divider(),
 
       S.listItem()
         .title('Footer')
+        .icon(GrDocument)
         .child(S.editor().schemaType('footer').documentId('footer')),
 
       S.listItem()
         .title('Site Options')
+        .icon(BsFillGearFill)
         .child(S.editor().schemaType('siteOptions').documentId('siteOptions')),
 
       S.divider(),
