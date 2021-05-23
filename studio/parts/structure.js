@@ -90,6 +90,7 @@ export default () =>
             'navigation',
             'seo',
             'farewellPage',
+            'galleryPage',
             'studio',
             'footer',
             'siteOptions',
