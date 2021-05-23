@@ -18,6 +18,15 @@ const StudiosScene = ({ className, scene, onSelectTouchpoint }) => {
     const containerEl = ref.current;
 
     containerEl.onmousemove = (e) => {
+      /**
+       * `offsetX` changes based on the current target.
+       * Avoid changing scroll when hovering over a touchpoint
+       * to prevent fidgety jumps.
+       */
+      if (e.target.tagName === 'BUTTON') {
+        return;
+      }
+
       const offsetX = Math.abs(e.offsetX);
       const width = containerEl.scrollWidth;
       const relativeX = offsetX / width;
