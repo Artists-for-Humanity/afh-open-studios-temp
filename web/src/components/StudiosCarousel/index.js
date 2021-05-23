@@ -15,7 +15,12 @@ const StudiosCarousel = ({ className, images, onClose }) => {
   return (
     <Closable className={className} onClose={onClose}>
       <div className={s.carousel}>
-        <CaptionImage className={s.image} img={images[curImage]} />
+        {images.map((img, i) => (
+          <CaptionImage
+            className={cn(s.image, i !== curImage && s.hidden)}
+            img={img}
+          />
+        ))}
         <If condition={images.length > 1}>
           <nav>
             <If condition={curImage > 0}>
