@@ -75,7 +75,7 @@ const StudioContentController = ({ content, onClose, passthrough }) => {
   }
 
   return (
-    <Closable onClose={onClose}>
+    <Closable className={s.studioContent} onClose={onClose}>
       <VideoPlayer className={s.studioContent} url={passthrough} />
     </Closable>
   );

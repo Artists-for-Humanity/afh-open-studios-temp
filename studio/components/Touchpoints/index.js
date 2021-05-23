@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import get from 'lodash.get';
 import isEmpty from 'lodash.isempty';
 import { Heading, Button } from '@sanity/ui';
