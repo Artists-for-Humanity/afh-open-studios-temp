@@ -7,24 +7,12 @@ import { TourWrapper, IntroductionSidebar, VideoPlayer } from '@components';
 import s from '../styles/introduction.module.scss';
 
 const Introduction = ({ navigation, introduction }) => {
-  const [videoEnded, setVideoEnded] = useState(false);
-
-  const onEnded = () => setVideoEnded(true);
-
   return (
     <TourWrapper
       navigation={navigation}
-      sidebar={
-        <IntroductionSidebar
-          {...introduction}
-          cta={videoEnded ? introduction.cta : null}
-        />
-      }
+      sidebar={<IntroductionSidebar {...introduction} cta={introduction.cta} />}
     >
-      <VideoPlayer
-        url={get(introduction, 'introduction_video.asset.url')}
-        onEnded={onEnded}
-      />
+      <VideoPlayer url={get(introduction, 'introduction_video.asset.url')} />
     </TourWrapper>
   );
 };
