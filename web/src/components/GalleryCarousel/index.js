@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { IconButton, CaptionImage } from '@components';
 import s from './styles.module.scss';
 
-const GalleryCarousel = ({ className, images, onClose }) => {
+const GalleryCarousel = ({ className, images }) => {
   const [curImage, setCurImage] = useState(0);
 
   const prev = () => setCurImage(curImage - 1);
@@ -14,7 +14,12 @@ const GalleryCarousel = ({ className, images, onClose }) => {
 
   return (
     <div className={s.carousel}>
-      <CaptionImage className={s.image} img={images[curImage]} />
+      {images.map((img, i) => (
+        <CaptionImage
+          className={cn(s.image, i !== curImage && s.hidden)}
+          img={img}
+        />
+      ))}
       <If condition={images.length > 1}>
         <nav>
           <If condition={curImage > 0}>
