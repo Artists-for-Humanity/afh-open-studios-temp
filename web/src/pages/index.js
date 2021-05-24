@@ -22,7 +22,7 @@ const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const payload = await client.fetch(groq`
     *[_type == 'landingPage']{
       heading,
