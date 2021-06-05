@@ -5,7 +5,15 @@ import Player from 'react-player';
 
 import s from './styles.module.scss';
 
-const VideoPlayer = ({ className, url, ...props }) => {
+const PlayIcon = (props) => {
+  return (
+    <button className={s.play} {...props}>
+      <i className="fas fa-play" />
+    </button>
+  );
+};
+
+const VideoPlayer = ({ className, url, thumbnail, ...props }) => {
   const [started, setStarted] = useState(false);
 
   return (
@@ -16,13 +24,10 @@ const VideoPlayer = ({ className, url, ...props }) => {
         height="100%"
         playing={started}
         controls={started}
+        playIcon={<PlayIcon onClick={() => setStarted(true)} />}
+        light={thumbnail || true}
         {...props}
       />
-      <If condition={!started}>
-        <button className={s.play} onClick={() => setStarted(true)}>
-          <i className="fas fa-play" />
-        </button>
-      </If>
     </div>
   );
 };
