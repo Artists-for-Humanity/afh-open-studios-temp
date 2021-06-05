@@ -27,14 +27,14 @@ const StudiosScene = ({ className, scene, onSelectTouchpoint }) => {
         return;
       }
 
-      const offsetX = Math.abs(e.offsetX);
-      const width = containerEl.scrollWidth;
-      const relativeX = offsetX / width;
+      const offsetY = Math.abs(e.offsetY);
+      const height = containerEl.scrollHeight;
+      const relativeY = offsetY / height;
 
       const containerElScrollDifference =
-        containerEl.scrollWidth - containerEl.offsetWidth;
+        containerEl.scrollHeight - containerEl.offsetHeight;
 
-      containerEl.scrollLeft = relativeX * containerElScrollDifference;
+      containerEl.scrollTop = relativeY * containerElScrollDifference;
     };
   }, []);
 
