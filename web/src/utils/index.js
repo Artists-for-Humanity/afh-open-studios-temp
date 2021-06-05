@@ -51,7 +51,10 @@ export function getNextStudio(current, studios) {
     const slug = s.slug.current;
 
     if (isNext) {
-      return s;
+      return {
+        title: s.short_title,
+        path: `/studios/${slug}`,
+      };
     }
 
     if (slug === current) {
@@ -59,5 +62,8 @@ export function getNextStudio(current, studios) {
     }
   }
 
-  return null;
+  return {
+    title: 'Gallery',
+    path: '/gallery',
+  };
 }

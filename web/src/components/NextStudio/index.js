@@ -9,13 +9,12 @@ const NextStudio = ({ className, studio }) => {
     return null;
   }
 
-  const title = studio.short_title;
-  const slug = studio.slug.current;
+  const { title, path } = studio;
 
   return (
     <div className={cn(s.container, className)}>
       <span>Up Next</span>
-      <Link className={s.link} href={`/studios/${slug}`}>
+      <Link className={s.link} href={path}>
         {title}
       </Link>
     </div>
