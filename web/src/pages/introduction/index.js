@@ -12,7 +12,10 @@ const Introduction = ({ navigation, introduction }) => {
       navigation={navigation}
       sidebar={<IntroductionSidebar {...introduction} cta={introduction.cta} />}
     >
-      <VideoPlayer url={get(introduction, 'introduction_video.asset.url')} />
+      <VideoPlayer
+        url={get(introduction, 'introduction_video.video.asset.url')}
+        thumbnail={get(introduction, 'introduction_video.thumbnail.asset.url')}
+      />
     </TourWrapper>
   );
 };
@@ -22,7 +25,10 @@ export const getServerSideProps = async () => {
     *[_type == 'introductionPage'][0]{
       title,
       description,
-      introduction_video{ asset->{ url } },
+      introduction_video {
+        video { asset -> { url } },
+        thumbnail { asset -> { url } },
+      },
       cta
     }
   `);

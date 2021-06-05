@@ -22,8 +22,7 @@ export default {
     {
       title: 'Introduction Video',
       name: 'introduction_video',
-      type: 'file',
-      validation: required,
+      type: 'video',
     },
     {
       title: 'Call to Action',

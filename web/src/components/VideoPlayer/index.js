@@ -5,16 +5,16 @@ import Player from 'react-player';
 
 import s from './styles.module.scss';
 
-const PlayIcon = (props) => {
+const PlayIcon = React.forwardRef((props, ref) => {
   return (
-    <button className={s.play} {...props}>
+    <button className={s.play} ref={ref} {...props}>
       <i className="fas fa-play" />
     </button>
   );
-};
+});
 
 const VideoPlayer = ({ className, url, thumbnail, ...props }) => {
-  const [started, setStarted] = useState(false);
+  const [started, setStarted] = useState(!thumbnail);
 
   return (
     <div className={cn(s.container, className)}>
@@ -22,10 +22,11 @@ const VideoPlayer = ({ className, url, thumbnail, ...props }) => {
         url={url}
         width="100%"
         height="100%"
+        playIcon={<PlayIcon />}
+        light={thumbnail || false}
         playing={started}
-        controls={started}
-        playIcon={<PlayIcon onClick={() => setStarted(true)} />}
-        light={thumbnail || true}
+        onReady={() => setStarted(true)}
+        controls
         {...props}
       />
     </div>
