@@ -1,4 +1,5 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as NextStudio } from './NextStudio';
 export { default as MobileCover } from './MobileCover';
 export { default as GalleryCarousel } from './GalleryCarousel';
 export { default as Sidebar } from './Sidebar';

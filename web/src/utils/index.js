@@ -35,3 +35,29 @@ export function getImageUrl(source) {
   const imageURLBuilder = ImageURLBuilder(client);
   return imageURLBuilder.image(source);
 }
+
+/**
+ * Get next studio given current one.
+ *
+ * @param {string} current: slug of current studio
+ * @param {array} studios: ordered list of all studios
+ *
+ * @return {object} next studio
+ */
+export function getNextStudio(current, studios) {
+  let isNext = false;
+
+  for (const s of studios) {
+    const slug = s.slug.current;
+
+    if (isNext) {
+      return s;
+    }
+
+    if (slug === current) {
+      isNext = true;
+    }
+  }
+
+  return null;
+}

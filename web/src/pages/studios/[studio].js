@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import isEmpty from 'lodash.isempty';
 import get from 'lodash.get';
 import { If } from 'react-if';
 import groq from 'groq';
 
 import client from '@client';
+import { getNextStudio } from '@utils';
 import { GROQ } from '@utils/constants';
 import {
   TourWrapper,
@@ -13,6 +15,7 @@ import {
   StudiosScene,
   StudiosCarousel,
   VideoPlayer,
+  NextStudio,
 } from '@components';
 import s from '../styles/studios-studio.module.scss';
 
@@ -84,6 +87,9 @@ const StudioContentController = ({ content, onClose, passthrough }) => {
 const Studio = ({ studio, navigation }) => {
   const [touchpointIndex, setTouchpointIndex] = useState(null);
   const [passthrough, setPassthrough] = useState(null);
+  const { query } = useRouter();
+  const curStudio = query.studio;
+  const nextStudio = getNextStudio(curStudio, navigation.studios);
 
   const { short_title, description, scene } = studio;
   const curContent =
@@ -105,6 +111,7 @@ const Studio = ({ studio, navigation }) => {
   return (
     <TourWrapper navigation={navigation} sidebar={sidebar}>
       <StudiosScene scene={scene} onSelectTouchpoint={setTouchpointIndex} />
+      <NextStudio className={s.nextStudio} studio={nextStudio} />
       {touchpointIndex !== null && (
         <StudioContentController
           content={scene.content[touchpointIndex]}
