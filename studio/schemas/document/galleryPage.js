@@ -19,7 +19,7 @@ export default {
     {
       title: 'Audio',
       name: 'audio',
-      description: 'Additional audio explanation of this studio.',
+      description: 'Additional audio explanation of the gallery.',
       type: 'file',
     },
     {

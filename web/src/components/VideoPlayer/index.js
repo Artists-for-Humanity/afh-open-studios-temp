@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
-import { If } from 'react-if';
 import Player from 'react-player';
 
 import s from './styles.module.scss';

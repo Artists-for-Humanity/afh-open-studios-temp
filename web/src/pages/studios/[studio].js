@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Player from 'react-player';
 import isEmpty from 'lodash.isempty';
 import get from 'lodash.get';
 import { If } from 'react-if';
@@ -94,12 +95,17 @@ const Studio = ({ studio, navigation }) => {
   const { short_title, description, scene } = studio;
   const curContent =
     touchpointIndex === null ? {} : scene.content[touchpointIndex];
+  const audioUrl = get(studio, 'audio.asset.url');
 
   const onClose = () => setTouchpointIndex(null);
 
   const sidebar =
     touchpointIndex === null ? (
-      <StudiosSidebar heading={short_title} description={description} />
+      <StudiosSidebar heading={short_title} description={description}>
+        <If condition={audioUrl}>
+          <Player width="100%" height="60px" url={audioUrl} controls />
+        </If>
+      </StudiosSidebar>
     ) : (
       <StudioSidebarController
         content={curContent}
@@ -132,6 +138,7 @@ export const getServerSideProps = async ({ query }) => {
         short_title,
         slug,
         description,
+        audio { asset -> { url } },
         scene {
           image,
           touchpoints,
