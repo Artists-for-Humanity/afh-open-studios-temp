@@ -17,6 +17,12 @@ export default {
       type: 'richText',
     },
     {
+      title: 'Audio',
+      name: 'audio',
+      description: 'Additional audio explanation of this studio.',
+      type: 'file',
+    },
+    {
       title: 'Carousel',
       name: 'carousel',
       type: 'array',

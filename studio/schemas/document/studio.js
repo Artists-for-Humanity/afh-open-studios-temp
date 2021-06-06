@@ -35,6 +35,12 @@ export default {
       of: [{ type: 'block' }],
     },
     {
+      title: 'Audio',
+      name: 'audio',
+      description: 'Additional audio explanation of this studio.',
+      type: 'file',
+    },
+    {
       title: 'Scene',
       name: 'scene',
       type: 'scene',
