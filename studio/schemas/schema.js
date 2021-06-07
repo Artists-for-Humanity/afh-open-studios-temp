@@ -30,6 +30,7 @@ export default createSchema({
     require('./document/studiosPage').default,
     require('./document/galleryPage').default,
     require('./object/video').default,
-    // temples: require('./{{ type }}/{{ name }}').default,
+    require('./document/checkInPage').default,
+// temples: require('./{{ type }}/{{ name }}').default,
   ]),
 });

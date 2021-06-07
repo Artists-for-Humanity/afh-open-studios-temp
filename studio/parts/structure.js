@@ -7,6 +7,11 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
+        .title('Check In')
+        .icon(GrDocument)
+        .child(S.editor().schemaType('checkInPage').documentId('checkInPage')),
+
+      S.listItem()
         .title('Landing')
         .icon(GrDocument)
         .child(S.editor().schemaType('landingPage').documentId('landingPage')),
@@ -59,6 +64,7 @@ export default () =>
             'seo',
             'farewellPage',
             'galleryPage',
+            'checkInPage',
             'studio',
             'footer',
             'siteOptions',
