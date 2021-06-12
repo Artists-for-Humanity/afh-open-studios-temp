@@ -43,6 +43,18 @@ export default () =>
       S.divider(),
 
       S.listItem()
+        .title('Visitors')
+        .schemaType('visitorRecord')
+        .child(
+          S.documentList()
+            .title('Visitors')
+            .showIcons(false)
+            .filter('_type == "visitorRecord"'),
+        ),
+
+      S.divider(),
+
+      S.listItem()
         .title('Footer')
         .icon(GrDocument)
         .child(S.editor().schemaType('footer').documentId('footer')),
@@ -65,6 +77,7 @@ export default () =>
             'farewellPage',
             'galleryPage',
             'checkInPage',
+            'visitorRecord',
             'studio',
             'footer',
             'siteOptions',
