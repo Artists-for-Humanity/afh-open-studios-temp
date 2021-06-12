@@ -72,7 +72,9 @@ const TourNavigation = ({ className, navigation }) => {
             </Link>
           ))}
         </ul>
-        <button className={s.cta}>End Tour</button>
+        <Link className={s.cta} href="/guestbook">
+          End Tour
+        </Link>
       </nav>
     </header>
   );
