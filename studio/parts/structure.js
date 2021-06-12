@@ -40,6 +40,13 @@ export default () =>
         .icon(GrDocument)
         .child(S.editor().schemaType('galleryPage').documentId('galleryPage')),
 
+      S.listItem()
+        .title('Guestbook')
+        .icon(GrDocument)
+        .child(
+          S.editor().schemaType('guestbookPage').documentId('guestbookPage'),
+        ),
+
       S.divider(),
 
       S.listItem()
@@ -81,6 +88,7 @@ export default () =>
           ![
             'landingPage',
             'introductionPage',
+            'guestbookPage',
             'studiosPage',
             'navigation',
             'seo',
