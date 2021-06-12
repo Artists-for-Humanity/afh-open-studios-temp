@@ -14,8 +14,10 @@ const Sidebar = ({ className, title, description, cta, ctaHref, children }) => {
         <If condition={!isEmpty(description)}>
           <RichText blocks={description} />
         </If>
+        <If condition={!isEmpty(children)}>
+          <div className={s.children}>{children}</div>
+        </If>
       </div>
-      {children}
       <If condition={cta}>
         <Link className={s.cta} href={ctaHref}>
           {cta}
