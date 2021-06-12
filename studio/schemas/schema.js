@@ -12,7 +12,6 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     require('./document/landingPage').default,
-    require('./document/farewellPage').default,
     require('./object/richImage').default,
     require('./document/footer').default,
     require('./object/link').default,
@@ -33,6 +32,6 @@ export default createSchema({
     require('./document/checkInPage').default,
     require('./document/visitorRecord').default,
     require('./document/review').default,
-// temples: require('./{{ type }}/{{ name }}').default,
+    // temples: require('./{{ type }}/{{ name }}').default,
   ]),
 });

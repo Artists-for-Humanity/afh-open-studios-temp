@@ -84,7 +84,6 @@ export default () =>
             'studiosPage',
             'navigation',
             'seo',
-            'farewellPage',
             'galleryPage',
             'checkInPage',
             'visitorRecord',
