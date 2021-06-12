@@ -39,6 +39,7 @@ export default {
       title: 'Opted into Newsletter?',
       name: 'opt_in_newsletter',
       type: 'boolean',
+      readOnly: true,
     },
     {
       title: 'Date and Time',

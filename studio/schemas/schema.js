@@ -32,6 +32,7 @@ export default createSchema({
     require('./object/video').default,
     require('./document/checkInPage').default,
     require('./document/visitorRecord').default,
-    // temples: require('./{{ type }}/{{ name }}').default,
+    require('./document/review').default,
+// temples: require('./{{ type }}/{{ name }}').default,
   ]),
 });

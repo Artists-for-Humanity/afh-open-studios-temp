@@ -43,6 +43,18 @@ export default () =>
       S.divider(),
 
       S.listItem()
+        .title('Footer')
+        .icon(GrDocument)
+        .child(S.editor().schemaType('footer').documentId('footer')),
+
+      S.listItem()
+        .title('Site Options')
+        .icon(BsFillGearFill)
+        .child(S.editor().schemaType('siteOptions').documentId('siteOptions')),
+
+      S.divider(),
+
+      S.listItem()
         .title('Visitors')
         .schemaType('visitorRecord')
         .child(
@@ -52,17 +64,15 @@ export default () =>
             .filter('_type == "visitorRecord"'),
         ),
 
-      S.divider(),
-
       S.listItem()
-        .title('Footer')
-        .icon(GrDocument)
-        .child(S.editor().schemaType('footer').documentId('footer')),
-
-      S.listItem()
-        .title('Site Options')
-        .icon(BsFillGearFill)
-        .child(S.editor().schemaType('siteOptions').documentId('siteOptions')),
+        .title('Reviews')
+        .schemaType('review')
+        .child(
+          S.documentList()
+            .title('Reviews')
+            .showIcons(false)
+            .filter('_type == "review"'),
+        ),
 
       S.divider(),
 
@@ -78,6 +88,7 @@ export default () =>
             'galleryPage',
             'checkInPage',
             'visitorRecord',
+            'review',
             'studio',
             'footer',
             'siteOptions',
