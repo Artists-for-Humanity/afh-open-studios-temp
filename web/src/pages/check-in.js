@@ -2,12 +2,16 @@ import React from 'react';
 import groq from 'groq';
 
 import client from '@client';
-import { TourWrapper } from '@components';
+import { TourWrapper, CheckInForm } from '@components';
 
 import s from './styles/check-in.module.scss';
 
 const CheckIn = ({ checkIn, navigation }) => {
-  return <TourWrapper navigation={navigation} />;
+  return (
+    <TourWrapper navigation={navigation}>
+      <CheckInForm {...checkIn} />
+    </TourWrapper>
+  );
 };
 
 export const getServerSideProps = async () => {
