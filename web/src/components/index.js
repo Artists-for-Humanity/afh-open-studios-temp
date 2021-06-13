@@ -1,4 +1,7 @@
 // temples: export { default as {{ title-case name }} } from './{{ title-case name }}';
+export { default as GuestbookSign } from './GuestbookSign';
+export { default as GuestbookReviews } from './GuestbookReviews';
+export { default as GuestbookContent } from './GuestbookContent';
 export { default as CheckInForm } from './CheckInForm';
 export { default as NextStudio } from './NextStudio';
 export { default as MobileCover } from './MobileCover';

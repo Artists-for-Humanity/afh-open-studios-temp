@@ -5,7 +5,7 @@ import groq from 'groq';
 import get from 'lodash.get';
 
 import client from '@client';
-import { TourWrapper, Sidebar } from '@components';
+import { TourWrapper, Sidebar, GuestbookContent } from '@components';
 
 import s from './styles/guestbook.module.scss';
 
@@ -22,7 +22,9 @@ const Guestbook = ({ navigation, guestbook }) => {
           </If>
         </Sidebar>
       }
-    ></TourWrapper>
+    >
+      <GuestbookContent guestbook={guestbook} />
+    </TourWrapper>
   );
 };
 

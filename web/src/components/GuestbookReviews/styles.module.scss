@@ -1,0 +1,17 @@
+@import 'abstracts';
+
+.container {
+  @include padding($sp-sm);
+  overflow-y: scroll;
+}
+
+.review {
+  &:not(:last-child) {
+    margin-bottom: $sp-sm-md;
+  }
+
+  h3 {
+    @include ff-gotham-sub-title;
+    margin-bottom: $sp-xxs;
+  }
+}
