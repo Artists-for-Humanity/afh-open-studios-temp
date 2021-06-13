@@ -2,10 +2,10 @@
 
 .container {
   @include flex;
-  @include padding($sp-xs);
+  @include padding($sp-sm + $sp-xs);
 
   @include mq($bp-monitor) {
-    @include padding($sp-sm);
+    @include padding($sp-sm + $sp-xs);
   }
 }
 
