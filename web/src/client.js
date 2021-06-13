@@ -1,7 +1,7 @@
 const sanityClient = require('@sanity/client');
 
 module.exports = sanityClient({
-  projectId: 'yi3588vu',
+  projectId: process.env.SANITY_PROJECT_ID,
   dataset: 'production',
   useCdn: false,
 });
