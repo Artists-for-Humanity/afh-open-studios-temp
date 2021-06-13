@@ -46,5 +46,21 @@ export default {
         },
       ],
     },
+    {
+      title: 'Closing Image',
+      name: 'closing_image',
+      type: 'richImage',
+    },
+    {
+      title: 'Closing Title',
+      name: 'closing_title',
+      type: 'string',
+      validation: required,
+    },
+    {
+      title: 'Closing Description',
+      name: 'closing_description',
+      type: 'richText',
+    },
   ],
 };

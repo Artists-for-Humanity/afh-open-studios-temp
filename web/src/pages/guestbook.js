@@ -41,6 +41,9 @@ export const getServerSideProps = async () => {
       share_consent_text,
       primary_cta,
       ctas,
+      closing_image,
+      closing_title,
+      closing_description,
     }
   `);
 
