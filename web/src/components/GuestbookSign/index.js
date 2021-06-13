@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import isEmpty from 'lodash.isempty';
 import { If, Then, Else } from 'react-if';
+
 import { GuestbookFarewell } from '@components';
 import s from './styles.module.scss';
 
@@ -10,12 +13,34 @@ const GuestbookSign = ({
   image,
   shareConsentText,
 }) => {
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    review: '',
+    share_consent: false,
+  });
   const [signed, setSigned] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
     setSigned(true);
+
+    axios.post('/api/review', formData);
   };
+
+  const onChange = (e) => {
+    const isCheckbox = e.target.type === 'checkbox';
+    const newValue = isCheckbox ? e.target.checked : e.target.value.trim();
+
+    setFormData({
+      ...formData,
+      [e.target.name]: newValue,
+    });
+  };
+
+  const isNotSignable = ['first_name', 'last_name', 'review'].some((key) =>
+    isEmpty(formData[key]),
+  );
 
   return (
     <If condition={signed}>
@@ -29,26 +54,37 @@ const GuestbookSign = ({
       <Else>
         <form className={s.container} onSubmit={onSubmit}>
           <div className={s.firstName}>
-            <label htmlFor="First Name">First Name</label>
-            <input placeholder="First Name" type="text" name="First Name" />
+            <label htmlFor="first_name">First Name</label>
+            <input
+              placeholder="First Name"
+              type="text"
+              name="first_name"
+              onChange={onChange}
+            />
           </div>
           <div className={s.lastName}>
-            <label htmlFor="Last Name">Last Name</label>
-            <input placeholder="Last Name" type="text" name="Last Name" />
+            <label htmlFor="last_name">Last Name</label>
+            <input
+              placeholder="Last Name"
+              type="text"
+              name="last_name"
+              onChange={onChange}
+            />
           </div>
           <div className={s.review}>
-            <label htmlFor="Review">How was your experience?</label>
+            <label htmlFor="review">How was your experience?</label>
             <textarea
               type="text"
               placeholder="Tell us about your experience"
-              name="Review"
+              name="review"
+              onChange={onChange}
             />
           </div>
           <div className={s.shareConsent}>
-            <input type="checkbox" name="Share Consent" />
-            <label htmlFor="Share Consent">{shareConsentText}</label>
+            <input type="checkbox" name="share_consent" onChange={onChange} />
+            <label htmlFor="share_consent">{shareConsentText}</label>
           </div>
-          <button className={s.sign} type="submit">
+          <button className={s.sign} type="submit" disabled={isNotSignable}>
             Sign
           </button>
         </form>

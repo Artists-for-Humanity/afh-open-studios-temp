@@ -19,4 +19,9 @@
       color: $black;
     }
   }
+
+  &:disabled {
+    cursor: auto;
+    opacity: 0.2;
+  }
 }
