@@ -3,7 +3,9 @@
 .container {
   @include size(100%);
   display: grid;
+}
 
+.withReviews {
   grid-template-columns: 1fr 2fr;
 }
 
