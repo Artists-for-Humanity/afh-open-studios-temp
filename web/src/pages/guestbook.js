@@ -16,7 +16,7 @@ const Guestbook = ({ navigation, guestbook }) => {
     <TourWrapper
       navigation={navigation}
       sidebar={
-        <Sidebar title={guestbook.title}>
+        <Sidebar className={s.sidebar} title={guestbook.title}>
           <If condition={audioUrl}>
             <Player width="100%" height="60px" url={audioUrl} controls />
           </If>

@@ -3,6 +3,8 @@
 .container {
   @include size(100%);
   display: grid;
+
+  background-color: $river-bed;
 }
 
 .withReviews {
@@ -11,5 +13,7 @@
 
 .signCtas {
   @include flex(column, space-between);
+
+  border-left: 1px solid $white;
   overflow-y: scroll;
 }
