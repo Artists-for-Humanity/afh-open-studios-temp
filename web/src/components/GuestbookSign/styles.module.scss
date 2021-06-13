@@ -1,1 +1,70 @@
 @import 'abstracts';
+
+%input-wrapper {
+  @include flex(column);
+  @include padding(x $sp-xs);
+  height: fit-content;
+
+  label {
+    margin-bottom: $sp-xxs;
+
+    @include mq($bp-monitor) {
+      @include ff-gotham-sub-title;
+    }
+  }
+
+  input,
+  textarea {
+    @include padding($sp-xs);
+    @include ff-gotham-body;
+  }
+}
+
+.container {
+  @include padding($sp-sm);
+  @include flex(row, space-between);
+  flex-wrap: wrap;
+  height: fit-content;
+}
+
+.firstName,
+.lastName,
+.review {
+  @extend %input-wrapper;
+}
+
+.firstName,
+.lastName {
+  width: 50%;
+}
+
+.review {
+  @include margin($sp-sm x);
+  width: 100%;
+
+  textarea {
+    height: $sp-lg;
+    resize: none;
+
+    @include mq($bp-monitor) {
+      height: $sp-xxl;
+    }
+  }
+}
+
+.shareConsent {
+  @include padding(x $sp-xs);
+  @include flex;
+  align-items: center;
+
+  input {
+    @include size($sp-xs);
+    margin-right: $sp-xs;
+  }
+}
+
+.sign {
+  @include margin(x $sp-xs);
+  @include pill;
+  width: $sp-xl;
+}
