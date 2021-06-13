@@ -43,11 +43,11 @@
   width: 100%;
 
   textarea {
-    height: $sp-lg;
+    height: $sp-lg-xl;
     resize: none;
 
     @include mq($bp-monitor) {
-      height: $sp-xxl;
+      height: $sp-xl-xxl;
     }
   }
 }
@@ -56,6 +56,7 @@
   @include padding(x $sp-xs);
   @include flex;
   align-items: center;
+  margin-bottom: $sp-xs;
 
   input {
     @include size($sp-xs);
@@ -67,4 +68,5 @@
   @include margin(x $sp-xs);
   @include pill;
   width: $sp-xl;
+  margin-bottom: $sp-xs;
 }
