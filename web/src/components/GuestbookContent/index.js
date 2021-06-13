@@ -16,7 +16,12 @@ const GuestbookContent = ({ className, guestbook }) => {
         <GuestbookReviews reviews={reviews} />
       </If>
       <div className={s.signCtas}>
-        <GuestbookSign shareConsentText={guestbook.share_consent_text} />
+        <GuestbookSign
+          shareConsentText={guestbook.share_consent_text}
+          title={guestbook.closing_title}
+          description={guestbook.closing_description}
+          image={guestbook.closing_image}
+        />
         <GuestbookCTAs
           primaryCta={guestbook.primary_cta}
           ctas={guestbook.ctas}

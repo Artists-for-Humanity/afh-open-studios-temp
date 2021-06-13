@@ -1,0 +1,18 @@
+@import 'abstracts';
+
+.container {
+  @include padding($sp-xs);
+
+  @include mq($bp-monitor) {
+    @include padding($sp-sm);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    @include ff-gotham-title;
+    @include margin($sp-xs x);
+  }
+}
