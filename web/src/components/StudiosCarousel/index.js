@@ -19,6 +19,7 @@ const StudiosCarousel = ({ className, images, onClose }) => {
           <CaptionImage
             className={cn(s.image, i !== curImage && s.hidden)}
             img={img}
+            key={i}
           />
         ))}
         <If condition={images.length > 1}>
@@ -36,6 +37,7 @@ const StudiosCarousel = ({ className, images, onClose }) => {
                 className={cn(i !== curImage && s.inactive)}
                 icon="fas fa-circle"
                 onClick={() => to(i)}
+                key={i}
               />
             ))}
             <If condition={curImage < images.length - 1}>

@@ -106,7 +106,9 @@ const CheckInForm = ({
                 >
                   <option value="">Select one...</option>
                   {tour_options.map((option) => (
-                    <option value={option}>{option}</option>
+                    <option value={option} key={option}>
+                      {option}
+                    </option>
                   ))}
                 </select>
               </div>

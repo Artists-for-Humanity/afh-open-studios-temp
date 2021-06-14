@@ -18,6 +18,7 @@ const GalleryCarousel = ({ className, images }) => {
         <CaptionImage
           className={cn(s.image, i !== curImage && s.hidden)}
           img={img}
+          key={i}
         />
       ))}
       <If condition={images.length > 1}>
@@ -35,6 +36,7 @@ const GalleryCarousel = ({ className, images }) => {
               className={cn(i !== curImage && s.inactive)}
               icon="fas fa-circle"
               onClick={() => to(i)}
+              key={i}
             />
           ))}
           <If condition={curImage < images.length - 1}>
@@ -49,5 +51,3 @@ const GalleryCarousel = ({ className, images }) => {
     </div>
   );
 };
-
-export default GalleryCarousel;

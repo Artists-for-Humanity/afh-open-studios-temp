@@ -14,7 +14,7 @@ const GuestbookCTAs = ({ className, primaryCta, ctas }) => {
       <If condition={!isEmpty(ctas)}>
         <ul className={s.ctas}>
           {ctas.map(({ text, url }) => (
-            <li>
+            <li key={text}>
               <Link href={url}>{text}</Link>
             </li>
           ))}
