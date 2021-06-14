@@ -125,7 +125,7 @@ const CheckInForm = ({
               </div>
             </div>
             <button className={s.cta} type="submit">
-              Begin Tour
+              {cta}
             </button>
           </form>
         </Else>

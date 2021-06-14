@@ -85,8 +85,9 @@ export function useCheckIn() {
 
       if (daysDifference > 6) {
         router.replace('/check-in');
-        return;
       }
+
+      return;
     }
 
     router.replace('/check-in');
