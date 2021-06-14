@@ -21,7 +21,6 @@ import {
 import s from '../styles/studios-studio.module.scss';
 
 const StudioSidebarController = ({ index, content, setPassthrough }) => {
-  useCheckIn();
   const [curPrompt, setCurPrompt] = useState(0);
   const type = content._type;
 
@@ -87,6 +86,7 @@ const StudioContentController = ({ content, onClose, passthrough }) => {
 };
 
 const Studio = ({ studio, navigation }) => {
+  useCheckIn();
   const [touchpointIndex, setTouchpointIndex] = useState(null);
   const [passthrough, setPassthrough] = useState(null);
   const { query } = useRouter();
