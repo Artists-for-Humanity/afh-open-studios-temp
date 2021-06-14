@@ -51,3 +51,5 @@ const GalleryCarousel = ({ className, images }) => {
     </div>
   );
 };
+
+export default GalleryCarousel;
