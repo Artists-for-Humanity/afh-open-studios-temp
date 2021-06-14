@@ -70,26 +70,28 @@ export function getNextStudio(current, studios) {
   };
 }
 
+export function isLastVisitOutdated() {
+  const lastVisit = window.localStorage.getItem('lastVisit');
+
+  if (lastVisit) {
+    const lastVisitDate = new Date(lastVisit);
+    const now = new Date();
+
+    const timeDifference = now.getTime() - lastVisitDate.getTime();
+    const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+    return daysDifference > 6;
+  }
+
+  return true;
+}
+
 export function useCheckIn() {
   const router = useRouter();
 
   useEffect(() => {
-    const lastVisit = window.localStorage.getItem('lastVisit');
-
-    if (lastVisit) {
-      const lastVisitDate = new Date(lastVisit);
-      const now = new Date();
-
-      const timeDifference = now.getTime() - lastVisitDate.getTime();
-      const daysDifference = timeDifference / (1000 * 3600 * 24);
-
-      if (daysDifference > 6) {
-        router.replace('/check-in');
-      }
-
-      return;
+    if (isLastVisitOutdated()) {
+      router.replace('/check-in');
     }
-
-    router.replace('/check-in');
   }, []);
 }

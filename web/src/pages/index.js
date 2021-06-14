@@ -2,10 +2,16 @@ import groq from 'groq';
 
 import client from '@client';
 import { LandingHero, LandingSteps, Link } from '@components';
+import { isLastVisitOutdated } from '@utils';
 import s from './styles/index.module.scss';
 
 const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
   const { logo } = siteOptions;
+  let ctaLink = '/introduction';
+
+  if (typeof window !== 'undefined' && isLastVisitOutdated()) {
+    ctaLink = '/check-in';
+  }
 
   return (
     <main>
@@ -14,7 +20,7 @@ const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
         backgrounds={background_images}
         logo={logo}
       />
-      <Link className={s.cta} href="/introduction">
+      <Link className={s.cta} href={ctaLink}>
         {cta}
       </Link>
       <LandingSteps steps={steps} />
