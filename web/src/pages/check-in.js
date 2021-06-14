@@ -2,14 +2,17 @@ import React from 'react';
 import groq from 'groq';
 
 import client from '@client';
-import { TourWrapper, CheckInForm } from '@components';
+import { TourWrapper, CheckInForm, CheckInIntroduction } from '@components';
 
 import s from './styles/check-in.module.scss';
 
 const CheckIn = ({ checkIn, navigation }) => {
   return (
     <TourWrapper navigation={navigation}>
-      <CheckInForm {...checkIn} />
+      <div className={s.content}>
+        <CheckInIntroduction {...checkIn} />
+        <CheckInForm {...checkIn} />
+      </div>
     </TourWrapper>
   );
 };

@@ -1,0 +1,34 @@
+@import 'abstracts';
+
+.container {
+  @include padding($sp-xs);
+  overflow-y: scroll;
+
+  @include mq($bp-monitor) {
+    @include padding($sp-sm);
+    padding-top: $sp-xl;
+  }
+
+  > div {
+    @include margin($sp-sm x);
+  }
+
+  h1 {
+    @include ff-gotham-title;
+    margin-bottom: $sp-xxs;
+  }
+
+  h2 {
+    @include ff-gotham-sub-title;
+    position: relative;
+    margin-bottom: $sp-xxs;
+
+    &::before {
+      @include pseudo-reset;
+      @include size(20px);
+      display: inline-block;
+      margin-right: $sp-xxs;
+      background-color: $blue;
+    }
+  }
+}
