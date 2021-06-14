@@ -11,18 +11,30 @@ function App({ Component, pageProps, router, props }) {
   const { seo } = siteOptions;
 
   useEffect(() => {
-    const lastVisit = window.localStorage.getItem('lastVisit');
+    const authenticatedRoutes = [
+      '/introduction',
+      '/studios',
+      '/gallery',
+      '/guestbook',
+    ];
 
-    if (lastVisit) {
-      const lastVisitDate = new Date(lastVisit);
-      const now = new Date();
+    if (authenticatedRoutes.some((r) => router.asPath.startsWith(r))) {
+      const lastVisit = window.localStorage.getItem('lastVisit');
 
-      const timeDifference = now.getTime() - lastVisitDate.getTime();
-      const daysDifference = timeDifference / (1000 * 3600 * 24);
+      if (lastVisit) {
+        const lastVisitDate = new Date(lastVisit);
+        const now = new Date();
 
-      if (daysDifference > 6) {
-        router.replace('/check-in');
+        const timeDifference = now.getTime() - lastVisitDate.getTime();
+        const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+        if (daysDifference > 6) {
+          router.replace('/check-in');
+          return;
+        }
       }
+
+      router.replace('/check-in');
     }
   }, []);
 

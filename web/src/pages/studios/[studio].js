@@ -7,7 +7,7 @@ import { If } from 'react-if';
 import groq from 'groq';
 
 import client from '@client';
-import { getNextStudio } from '@utils';
+import { getNextStudio, useCheckIn } from '@utils';
 import { GROQ } from '@utils/constants';
 import {
   TourWrapper,
@@ -21,6 +21,7 @@ import {
 import s from '../styles/studios-studio.module.scss';
 
 const StudioSidebarController = ({ index, content, setPassthrough }) => {
+  useCheckIn();
   const [curPrompt, setCurPrompt] = useState(0);
   const type = content._type;
 

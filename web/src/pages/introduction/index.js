@@ -4,9 +4,12 @@ import groq from 'groq';
 
 import client from '@client';
 import { TourWrapper, IntroductionSidebar, VideoPlayer } from '@components';
+import { useCheckIn } from '@utils';
 import s from '../styles/introduction.module.scss';
 
 const Introduction = ({ navigation, introduction }) => {
+  useCheckIn();
+
   return (
     <TourWrapper
       navigation={navigation}

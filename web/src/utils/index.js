@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import get from 'lodash.get';
 import ImageURLBuilder from '@sanity/image-url';
 
@@ -66,4 +68,27 @@ export function getNextStudio(current, studios) {
     title: 'Gallery',
     path: '/gallery',
   };
+}
+
+export function useCheckIn() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const lastVisit = window.localStorage.getItem('lastVisit');
+
+    if (lastVisit) {
+      const lastVisitDate = new Date(lastVisit);
+      const now = new Date();
+
+      const timeDifference = now.getTime() - lastVisitDate.getTime();
+      const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+      if (daysDifference > 6) {
+        router.replace('/check-in');
+        return;
+      }
+    }
+
+    router.replace('/check-in');
+  }, []);
 }

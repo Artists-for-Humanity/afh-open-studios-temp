@@ -5,11 +5,13 @@ import groq from 'groq';
 import get from 'lodash.get';
 
 import client from '@client';
+import { useCheckIn } from '@utils';
 import { TourWrapper, Sidebar, GuestbookContent } from '@components';
 
 import s from './styles/guestbook.module.scss';
 
 const Guestbook = ({ navigation, guestbook }) => {
+  useCheckIn();
   const audioUrl = get(guestbook, 'audio.asset.url');
 
   return (

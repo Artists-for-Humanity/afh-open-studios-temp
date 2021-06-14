@@ -6,9 +6,11 @@ import get from 'lodash.get';
 
 import client from '@client';
 import { TourWrapper, Sidebar, GalleryCarousel } from '@components';
+import { useCheckIn } from '@utils';
 import s from './styles/gallery.module.scss';
 
 const Gallery = ({ navigation, gallery }) => {
+  useCheckIn();
   const audioUrl = get(gallery, 'audio.asset.url');
 
   return (

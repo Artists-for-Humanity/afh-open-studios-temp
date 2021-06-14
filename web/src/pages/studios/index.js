@@ -3,10 +3,11 @@ import groq from 'groq';
 
 import client from '@client';
 import { TourWrapper, StudiosSidebar, StudiosTable, Link } from '@components';
-import { getAttrFromFirst } from '@utils';
+import { getAttrFromFirst, useCheckIn } from '@utils';
 import s from '../styles/studios.module.scss';
 
 const Studios = ({ studios, allStudios, navigation }) => {
+  useCheckIn();
   const { title, cta } = studios;
   const firstStudioSlug = getAttrFromFirst(allStudios, 'slug.current');
 
