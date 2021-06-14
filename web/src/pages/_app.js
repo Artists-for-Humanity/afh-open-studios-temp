@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import groq from 'groq';
 
 import client from '@client';
@@ -8,6 +9,22 @@ import '../styles/index.scss';
 function App({ Component, pageProps, router, props }) {
   const { footer, siteOptions, navigation } = props;
   const { seo } = siteOptions;
+
+  useEffect(() => {
+    const lastVisit = window.localStorage.getItem('lastVisit');
+
+    if (lastVisit) {
+      const lastVisitDate = new Date(lastVisit);
+      const now = new Date();
+
+      const timeDifference = now.getTime() - lastVisitDate.getTime();
+      const daysDifference = timeDifference / (1000 * 3600 * 24);
+
+      if (daysDifference > 6) {
+        router.replace('/check-in');
+      }
+    }
+  }, []);
 
   return (
     <>

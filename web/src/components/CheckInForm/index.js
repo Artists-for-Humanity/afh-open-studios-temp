@@ -27,11 +27,13 @@ const CheckInForm = ({
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (['first_name', 'last_name'].every((key) => isEmpty(formData[key]))) {
-      axios.post('/api/visitor', formData);
-    }
+    if (['first_name', 'last_name'].every((key) => !isEmpty(formData[key]))) {
+      axios.post('/api/visitor', formData).then(() => {
+        window.localStorage.setItem('lastVisit', new Date().toISOString());
 
-    router.replace('/introduction');
+        router.replace('/introduction');
+      });
+    }
   };
 
   const onChange = (e) => {
