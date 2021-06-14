@@ -10,34 +10,6 @@ function App({ Component, pageProps, router, props }) {
   const { footer, siteOptions, navigation } = props;
   const { seo } = siteOptions;
 
-  useEffect(() => {
-    const authenticatedRoutes = [
-      '/introduction',
-      '/studios',
-      '/gallery',
-      '/guestbook',
-    ];
-
-    if (authenticatedRoutes.some((r) => router.asPath.startsWith(r))) {
-      const lastVisit = window.localStorage.getItem('lastVisit');
-
-      if (lastVisit) {
-        const lastVisitDate = new Date(lastVisit);
-        const now = new Date();
-
-        const timeDifference = now.getTime() - lastVisitDate.getTime();
-        const daysDifference = timeDifference / (1000 * 3600 * 24);
-
-        if (daysDifference > 6) {
-          router.replace('/check-in');
-          return;
-        }
-      }
-
-      router.replace('/check-in');
-    }
-  }, []);
-
   return (
     <>
       <SEO {...seo} />
