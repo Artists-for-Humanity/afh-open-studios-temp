@@ -7,10 +7,6 @@ export default function handler(req, res) {
 
   const currentVersion = new Date().toISOString().substring(0, 10);
 
-  console.log(
-    `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v${currentVersion}/data/mutate/production`,
-  );
-
   axios
     .post(
       `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v${currentVersion}/data/mutate/production`,
@@ -31,12 +27,7 @@ export default function handler(req, res) {
         headers: { Authorization: `Bearer ${process.env.SANITY_API_TOKEN}` },
       },
     )
-    .catch((e) => {
-      console.log(e);
-      console.log(e.toJSON());
-    });
-
-  console.log(`Bearer ${process.env.SANITY_API_TOKEN}`);
+    .catch((e) => {});
 
   res.status(200).send();
 }
