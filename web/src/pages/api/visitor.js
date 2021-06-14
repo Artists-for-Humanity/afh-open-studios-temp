@@ -14,7 +14,7 @@ export default function handler(req, res) {
 
   axios
     .post(
-      `gethttps://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v${currentVersion}/data/mutate/production`,
+      `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v${currentVersion}/data/mutate/production`,
       {
         mutations: [
           {
