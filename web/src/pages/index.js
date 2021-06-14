@@ -2,14 +2,15 @@ import groq from 'groq';
 
 import client from '@client';
 import { LandingHero, LandingSteps, Link } from '@components';
-import { isLastVisitOutdated } from '@utils';
+import { isLastVisitOutdated, useIsMounted } from '@utils';
 import s from './styles/index.module.scss';
 
 const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
+  const isMounted = useIsMounted();
   const { logo } = siteOptions;
   let ctaLink = '/introduction';
 
-  if (typeof window !== 'undefined' && isLastVisitOutdated()) {
+  if (isMounted && isLastVisitOutdated()) {
     ctaLink = '/check-in';
   }
 

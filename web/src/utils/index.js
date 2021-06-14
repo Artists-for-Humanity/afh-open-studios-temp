@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import get from 'lodash.get';
 import ImageURLBuilder from '@sanity/image-url';
@@ -70,6 +70,11 @@ export function getNextStudio(current, studios) {
   };
 }
 
+/**
+ * Is the visitor's last visit outdated by > 6 days?
+ *
+ * @return {boolean}
+ */
 export function isLastVisitOutdated() {
   const lastVisit = window.localStorage.getItem('lastVisit');
 
@@ -86,6 +91,10 @@ export function isLastVisitOutdated() {
   return true;
 }
 
+/**
+ * Hook to redirect to check in if visitor's
+ * last visit is outdated.
+ */
 export function useCheckIn() {
   const router = useRouter();
 
@@ -94,4 +103,17 @@ export function useCheckIn() {
       router.replace('/check-in');
     }
   }, []);
+}
+
+/**
+ * Hook to check if component is mounted (client-side).
+ *
+ * @return {boolean}
+ */
+export function useIsMounted() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  return mounted;
 }
