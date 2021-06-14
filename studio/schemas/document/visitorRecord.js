@@ -16,24 +16,26 @@ export default {
       name: 'first_name',
       type: 'string',
       validation: required,
+      readOnly: true,
     },
     {
       title: 'Last Name',
       name: 'last_name',
       type: 'string',
       validation: required,
+      readOnly: true,
     },
     {
       title: 'Email Address',
       name: 'email_address',
       type: 'string',
-      validation: required,
+      readOnly: true,
     },
     {
       title: 'How did the visitor hear about the tour?',
       name: 'hear_about_tour',
       type: 'string',
-      validation: required,
+      readOnly: true,
     },
     {
       title: 'Opted into Newsletter?',

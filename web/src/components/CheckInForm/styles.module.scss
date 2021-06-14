@@ -27,6 +27,10 @@
   }
 }
 
+.purpose {
+  margin-top: $sp-sm;
+}
+
 .formFields {
   @include flex;
   flex-wrap: wrap;
