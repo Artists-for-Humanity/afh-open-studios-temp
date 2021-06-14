@@ -58,6 +58,7 @@ const GuestbookSign = ({
             <input
               placeholder="First Name"
               type="text"
+              id="first_name"
               name="first_name"
               onChange={onChange}
             />
@@ -67,6 +68,7 @@ const GuestbookSign = ({
             <input
               placeholder="Last Name"
               type="text"
+              id="last_name"
               name="last_name"
               onChange={onChange}
             />
@@ -76,12 +78,18 @@ const GuestbookSign = ({
             <textarea
               type="text"
               placeholder="Tell us about your experience"
+              id="review"
               name="review"
               onChange={onChange}
             />
           </div>
           <div className={s.shareConsent}>
-            <input type="checkbox" name="share_consent" onChange={onChange} />
+            <input
+              type="checkbox"
+              id="share_consent"
+              name="share_consent"
+              onChange={onChange}
+            />
             <label htmlFor="share_consent">{shareConsentText}</label>
           </div>
           <button className={s.sign} type="submit" disabled={isNotSignable}>

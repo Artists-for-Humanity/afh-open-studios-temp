@@ -1,1 +1,98 @@
 @import 'abstracts';
+
+%input-wrapper {
+  @include flex(column);
+  @include margin($sp-xs x);
+  height: fit-content;
+
+  label {
+    font-weight: bold;
+    margin-bottom: $sp-xxs;
+  }
+
+  input,
+  textarea,
+  select {
+    @include padding($sp-xs);
+    @include ff-gotham-body;
+  }
+}
+
+.container {
+  @include padding($sp-xs);
+
+  @include mq($bp-monitor) {
+    @include padding($sp-sm);
+    padding-top: $sp-xl;
+  }
+}
+
+.formFields {
+  @include flex;
+  flex-wrap: wrap;
+}
+
+.header {
+  @include flex(row, space-between, center);
+
+  h2 {
+    @include ff-gotham-sub-title;
+  }
+
+  button {
+    color: $green;
+    font-weight: bold;
+
+    @include on-focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.firstName,
+.lastName,
+.emailAddress,
+.hearAboutTour {
+  @extend %input-wrapper;
+}
+
+.firstName,
+.lastName,
+.hearAboutTour {
+  width: 50%;
+}
+
+.firstName {
+  padding-right: $sp-xs;
+}
+
+.lastName {
+  padding-left: $sp-xs;
+}
+
+.emailAddress {
+  width: 100%;
+}
+
+.optInNewsletter {
+  @include flex(row, flex-end);
+  align-items: center;
+  padding-left: $sp-xs;
+  width: 50%;
+
+  input {
+    @include size(20px);
+    margin-right: $sp-xs;
+  }
+
+  label {
+    @include mq($bp-monitor) {
+      width: 50%;
+    }
+  }
+}
+
+.cta {
+  @include pill;
+  margin-top: $sp-sm;
+}
