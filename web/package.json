@@ -26,6 +26,7 @@
     "@sanity/image-url": "^0.140.22",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
+    "cors": "^2.8.5",
     "groq": "^2.2.6",
     "isomorphic-unfetch": "^3.1.0",
     "lodash.get": "^4.4.2",
