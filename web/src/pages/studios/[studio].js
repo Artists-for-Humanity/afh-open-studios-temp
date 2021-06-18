@@ -20,7 +20,12 @@ import {
 } from '@components';
 import s from '../styles/studios-studio.module.scss';
 
-const StudioSidebarController = ({ index, content, setPassthrough }) => {
+const StudioSidebarController = ({
+  index,
+  content,
+  setPassthrough,
+  hideInstructions,
+}) => {
   const [curPrompt, setCurPrompt] = useState(0);
   const type = content._type;
 
@@ -30,6 +35,7 @@ const StudioSidebarController = ({ index, content, setPassthrough }) => {
         heading={index + 1}
         title={content.title}
         description={content.description}
+        hideInstructions={hideInstructions}
       />
     );
   }
@@ -87,6 +93,7 @@ const StudioContentController = ({ content, onClose, passthrough }) => {
 
 const Studio = ({ studio, navigation }) => {
   useCheckIn();
+  const [clickedTouchpoint, setClickedTouchpoint] = useState(true);
   const [touchpointIndex, setTouchpointIndex] = useState(null);
   const [passthrough, setPassthrough] = useState(null);
   const { query } = useRouter();
@@ -100,9 +107,23 @@ const Studio = ({ studio, navigation }) => {
 
   const onClose = () => setTouchpointIndex(null);
 
+  useEffect(() => {
+    const hasClickedTouchpoint = window.localStorage.getItem(
+      'hasClickedTouchpoint',
+    );
+
+    if (!hasClickedTouchpoint) {
+      setClickedTouchpoint(false);
+    }
+  }, []);
+
   const sidebar =
     touchpointIndex === null ? (
-      <StudiosSidebar heading={short_title} description={description}>
+      <StudiosSidebar
+        heading={short_title}
+        description={description}
+        hideInstructions={clickedTouchpoint}
+      >
         <If condition={audioUrl}>
           <Player width="100%" height="60px" url={audioUrl} controls />
         </If>
@@ -112,12 +133,19 @@ const Studio = ({ studio, navigation }) => {
         content={curContent}
         setPassthrough={setPassthrough}
         index={touchpointIndex}
+        hideInstructions={clickedTouchpoint}
       />
     );
 
+  const onSelectTouchpoint = (i) => {
+    window.localStorage.setItem('hasClickedTouchpoint', true);
+    setClickedTouchpoint(true);
+    setTouchpointIndex(i);
+  };
+
   return (
     <TourWrapper navigation={navigation} sidebar={sidebar}>
-      <StudiosScene scene={scene} onSelectTouchpoint={setTouchpointIndex} />
+      <StudiosScene scene={scene} onSelectTouchpoint={onSelectTouchpoint} />
       <NextStudio className={s.nextStudio} studio={nextStudio} />
       {touchpointIndex !== null && (
         <StudioContentController
