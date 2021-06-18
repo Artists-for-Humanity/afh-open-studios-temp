@@ -23,7 +23,7 @@ const StudiosSidebar = ({
           <RichText blocks={description} />
         </If>
 
-        <If condition={children}>{children}</If>
+        {children}
       </div>
       <If condition={!hideInstructions}>
         <TouchpointInstructions />
