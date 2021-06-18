@@ -4,6 +4,7 @@
   @include size(150px);
   @include flex(column, center, center);
   @include ff-gotham-cta;
+  font-size: 24px;
 
   background-color: $green;
   border-radius: 100%;
@@ -36,8 +37,12 @@
   }
 
   @include mq($bp-tablet) {
-    @include size(200px);
+    @include size(220px);
     position: absolute;
     right: $sp-sm;
+  }
+
+  @include mq($bp-monitor) {
+    @include size(250px);
   }
 }
