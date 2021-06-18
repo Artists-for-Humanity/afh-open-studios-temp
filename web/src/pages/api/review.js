@@ -1,10 +1,7 @@
-import axios from 'axios';
 import fetch from 'isomorphic-unfetch';
 
 export default function handler(req, res) {
-  const { body } = req;
-  const { first_name, last_name, review, share_consent } = body;
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const { first_name, last_name, review, share_consent } = JSON.parse(req.body);
 
   const currentVersion = new Date().toISOString().substring(0, 10);
 
@@ -14,6 +11,7 @@ export default function handler(req, res) {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
+        ['Content-Type']: 'application/json',
       },
       body: JSON.stringify({
         mutations: [
@@ -30,8 +28,9 @@ export default function handler(req, res) {
       }),
     },
   )
-    .then((e) => {
+    .then(async (e) => {
       console.log('success');
+      console.log(await e.json());
       console.log(JSON.stringify(e));
     })
     .catch((e) => {
