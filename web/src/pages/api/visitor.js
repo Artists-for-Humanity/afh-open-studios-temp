@@ -11,6 +11,7 @@ export default function handler(req, res) {
   } = body;
 
   const currentVersion = new Date().toISOString().substring(0, 10);
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   axios
     .post(

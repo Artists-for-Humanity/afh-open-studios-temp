@@ -3,6 +3,7 @@ import axios from 'axios';
 export default function handler(req, res) {
   const { body } = req;
   const { first_name, last_name, review, share_consent } = body;
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   const currentVersion = new Date().toISOString().substring(0, 10);
 
