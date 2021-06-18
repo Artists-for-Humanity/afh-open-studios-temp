@@ -27,6 +27,13 @@ export default function handler(req, res) {
         headers: { Authorization: `Bearer ${process.env.SANITY_API_TOKEN}` },
       },
     )
-    .catch((e) => console.log(JSON.stringify(e)))
+    .then((e) => {
+      console.log('success');
+      console.log(e);
+    })
+    .catch((e) => {
+      console.log('error');
+      console.log(JSON.stringify(e));
+    })
     .finally(res.status(200).send());
 }
