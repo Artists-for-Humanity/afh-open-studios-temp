@@ -24,7 +24,7 @@ const StudiosSidebar = ({
           <RichText blocks={description} />
         </If>
 
-        {children}
+        <div className={s.children}>{children}</div>
       </div>
       <If condition={!hideInstructions || !isEmpty(carouselImages)}>
         <If condition={!hideInstructions}>
