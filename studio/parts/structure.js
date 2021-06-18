@@ -77,7 +77,7 @@ export default () =>
                 .title('All Visitors')
                 .child(
                   S.documentList()
-                    .title('Visitors')
+                    .title('All Visitors')
                     .showIcons(false)
                     .filter('_type == "visitorRecord"')
                     .defaultOrdering([
@@ -92,7 +92,10 @@ export default () =>
                     .showIcons(false)
                     .filter(
                       '_type == "visitorRecord" && email_address != "" && opt_in_newsletter',
-                    ),
+                    )
+                    .defaultOrdering([
+                      { field: '_createdAt', direction: 'desc' },
+                    ]),
                 ),
             ]),
         ),
@@ -101,10 +104,32 @@ export default () =>
         .title('Reviews')
         .schemaType('review')
         .child(
-          S.documentList()
-            .title('Reviews')
-            .showIcons(false)
-            .filter('_type == "review"'),
+          S.list()
+            .title('Filters')
+            .items([
+              S.listItem()
+                .title('All Reviews')
+                .child(
+                  S.documentList()
+                    .title('All Reviews')
+                    .showIcons(false)
+                    .filter('_type == "review"')
+                    .defaultOrdering([
+                      { field: '_createdAt', direction: 'desc' },
+                    ]),
+                ),
+              S.listItem()
+                .title('Reviews with share consent')
+                .child(
+                  S.documentList()
+                    .title('Reviews with share consent')
+                    .showIcons(false)
+                    .filter('_type == "review" && share_consent')
+                    .defaultOrdering([
+                      { field: '_createdAt', direction: 'desc' },
+                    ]),
+                ),
+            ]),
         ),
 
       S.divider(),
