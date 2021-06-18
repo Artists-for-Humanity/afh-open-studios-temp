@@ -12,6 +12,12 @@ export default {
       validation: required,
     },
     {
+      title: 'Audio',
+      name: 'audio',
+      description: 'Additional audio explanation of the studios.',
+      type: 'file',
+    },
+    {
       title: 'Call to Action',
       name: 'cta',
       type: 'string',

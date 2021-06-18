@@ -26,6 +26,11 @@ export default () =>
         ),
 
       S.listItem()
+        .title('Studios Introduction')
+        .icon(GrDocument)
+        .child(S.editor().schemaType('studiosPage').documentId('studiosPage')),
+
+      S.listItem()
         .title('Studios')
         .schemaType('studio')
         .child(
