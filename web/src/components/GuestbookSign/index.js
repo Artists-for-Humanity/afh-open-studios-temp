@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import fetch from 'isomorphic-unfetch';
 import isEmpty from 'lodash.isempty';
 import { If, Then, Else } from 'react-if';
 
@@ -23,7 +23,12 @@ const GuestbookSign = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    axios.post('/api/review', formData).finally(() => setSigned(true));
+
+    fetch('/api/review', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      mode: 'no-cors',
+    }).finally(() => setSigned(true));
   };
 
   const onChange = (e) => {

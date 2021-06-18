@@ -1,4 +1,5 @@
 import axios from 'axios';
+import fetch from 'isomorphic-unfetch';
 
 export default function handler(req, res) {
   const { body } = req;
@@ -7,10 +8,14 @@ export default function handler(req, res) {
 
   const currentVersion = new Date().toISOString().substring(0, 10);
 
-  axios
-    .post(
-      `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v${currentVersion}/data/mutate/production`,
-      {
+  fetch(
+    `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v${currentVersion}/data/mutate/production`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
+      },
+      body: JSON.stringify({
         mutations: [
           {
             create: {
@@ -22,11 +27,9 @@ export default function handler(req, res) {
             },
           },
         ],
-      },
-      {
-        headers: { Authorization: `Bearer ${process.env.SANITY_API_TOKEN}` },
-      },
-    )
+      }),
+    },
+  )
     .then((e) => {
       console.log('success');
       console.log(JSON.stringify(e));
