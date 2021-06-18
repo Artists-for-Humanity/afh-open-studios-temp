@@ -70,10 +70,31 @@ export default () =>
         .title('Visitors')
         .schemaType('visitorRecord')
         .child(
-          S.documentList()
-            .title('Visitors')
-            .showIcons(false)
-            .filter('_type == "visitorRecord"'),
+          S.list()
+            .title('Filters')
+            .items([
+              S.listItem()
+                .title('All Visitors')
+                .child(
+                  S.documentList()
+                    .title('Visitors')
+                    .showIcons(false)
+                    .filter('_type == "visitorRecord"')
+                    .defaultOrdering([
+                      { field: '_createdAt', direction: 'desc' },
+                    ]),
+                ),
+              S.listItem()
+                .title('Visitors opted into newsletter')
+                .child(
+                  S.documentList()
+                    .title('Visitors opted into newsletter')
+                    .showIcons(false)
+                    .filter(
+                      '_type == "visitorRecord" && email_address != "" && opt_in_newsletter',
+                    ),
+                ),
+            ]),
         ),
 
       S.listItem()
