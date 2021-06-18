@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default function handler(req, res) {
-  console.log(req);
   const { body } = req;
   const { first_name, last_name, review, share_consent } = body;
 
@@ -27,7 +26,7 @@ export default function handler(req, res) {
         headers: { Authorization: `Bearer ${process.env.SANITY_API_TOKEN}` },
       },
     )
-    .catch((e) => {});
+    .catch(console.log);
 
   res.status(200).send();
 }
