@@ -29,7 +29,7 @@ export default function handler(req, res) {
     )
     .then((e) => {
       console.log('success');
-      console.log(e);
+      console.log(JSON.stringify(e));
     })
     .catch((e) => {
       console.log('error');
