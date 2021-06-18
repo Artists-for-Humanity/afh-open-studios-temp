@@ -20,7 +20,7 @@ function App({ Component, pageProps, router, props }) {
         navigation={navigation}
       />
 
-      <Footer {...footer} />
+      <Footer {...footer} logo={siteOptions.logo} />
     </>
   );
 }

@@ -1,7 +1,8 @@
 import React from 'react';
+import { If } from 'react-if';
 import cn from 'classnames';
 
-import { RichText, Link } from '@components';
+import { RichText, Link, Image } from '@components';
 import s from './styles.module.scss';
 
 const Footer = ({
@@ -11,6 +12,7 @@ const Footer = ({
   copyright,
   ctaLink,
   socialMediaLinks,
+  logo,
 }) => {
   return (
     <footer className={cn(s.container, className)}>
@@ -23,8 +25,13 @@ const Footer = ({
 
       <div className={s.information}>
         <div className={s.contact}>
-          <RichText blocks={contact} />
-          <p>{copyright}</p>
+          <If condition={logo}>
+            <Image className={s.logo} img={logo} />
+          </If>
+          <div>
+            <RichText blocks={contact} />
+            <p>{copyright}</p>
+          </div>
         </div>
 
         <div className={s.social}>
