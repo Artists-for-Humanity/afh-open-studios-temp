@@ -13,7 +13,7 @@ const GalleryCarousel = ({ className, images }) => {
   const to = (i) => setCurImage(i);
 
   return (
-    <div className={s.carousel}>
+    <div className={cn(s.carousel, className)}>
       {images.map((img, i) => (
         <CaptionImage
           className={cn(s.image, i !== curImage && s.hidden)}

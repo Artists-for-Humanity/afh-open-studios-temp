@@ -1,9 +1,9 @@
 import React from 'react';
-import { If } from 'react-if';
+import { If, Then, Else } from 'react-if';
 import cn from 'classnames';
 import isEmpty from 'lodash.isempty';
 
-import { RichText, TouchpointInstructions } from '@components';
+import { RichText, TouchpointInstructions, GalleryCarousel } from '@components';
 import s from './styles.module.scss';
 
 const StudiosSidebar = ({
@@ -12,6 +12,7 @@ const StudiosSidebar = ({
   title,
   description,
   children,
+  carouselImages,
   hideInstructions = false,
 }) => {
   return (
@@ -25,8 +26,17 @@ const StudiosSidebar = ({
 
         {children}
       </div>
-      <If condition={!hideInstructions}>
-        <TouchpointInstructions />
+      <If condition={!hideInstructions || !isEmpty(carouselImages)}>
+        <If condition={!hideInstructions}>
+          <Then>
+            <TouchpointInstructions />
+          </Then>
+          <Else>
+            <If condition={!isEmpty(carouselImages)}>
+              <GalleryCarousel className={s.carousel} images={carouselImages} />
+            </If>
+          </Else>
+        </If>
       </If>
     </div>
   );

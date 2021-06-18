@@ -7,7 +7,7 @@ $h-padding: $sp-xxs-xs;
   background-color: $river-bed;
   height: 100%;
 
-  > div {
+  > div:first-child {
     @include site-padding;
     overflow-y: scroll;
   }
@@ -47,4 +47,13 @@ $h-padding: $sp-xxs-xs;
 .title {
   @include ff-gotham-title;
   margin-bottom: $sp-sm;
+}
+
+.carousel {
+  @include padding(0);
+  max-height: 300px;
+
+  @include mq($bp-monitor) {
+    max-height: 500px;
+  }
 }

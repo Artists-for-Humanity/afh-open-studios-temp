@@ -123,6 +123,7 @@ const Studio = ({ studio, navigation }) => {
         heading={short_title}
         description={description}
         hideInstructions={clickedTouchpoint}
+        carouselImages={studio.carousel_images}
       >
         <If condition={audioUrl}>
           <Player width="100%" height="60px" url={audioUrl} controls />
@@ -168,6 +169,7 @@ export const getServerSideProps = async ({ query }) => {
         slug,
         description,
         audio { asset -> { url } },
+        carousel_images,
         scene {
           image,
           touchpoints,
