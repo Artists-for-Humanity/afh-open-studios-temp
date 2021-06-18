@@ -41,6 +41,13 @@ export default {
       type: 'file',
     },
     {
+      title: 'Carousel',
+      name: 'carousel_images',
+      type: 'array',
+      description: 'Feature additional images of this studio.',
+      of: [{ type: 'richImage' }],
+    },
+    {
       title: 'Scene',
       name: 'scene',
       type: 'scene',
