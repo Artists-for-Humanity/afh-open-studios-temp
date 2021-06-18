@@ -23,9 +23,7 @@ const GuestbookSign = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setSigned(true);
-
-    axios.post('/api/review', formData);
+    axios.post('/api/review', formData).finally(() => setSigned(true));
   };
 
   const onChange = (e) => {
