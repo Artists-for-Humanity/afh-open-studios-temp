@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { If, Then, Else } from 'react-if';
 import isEmpty from 'lodash.isempty';
-import axios from 'axios';
 
 import { post } from '../../api';
 import { RichText } from '@components';
