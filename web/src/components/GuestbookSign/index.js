@@ -4,6 +4,7 @@ import isEmpty from 'lodash.isempty';
 import { If, Then, Else } from 'react-if';
 
 import { GuestbookFarewell } from '@components';
+import { post } from '../../api';
 import s from './styles.module.scss';
 
 const GuestbookSign = ({
@@ -24,11 +25,7 @@ const GuestbookSign = ({
   const onSubmit = (e) => {
     e.preventDefault();
 
-    fetch('/api/review', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      mode: 'no-cors',
-    }).finally(() => setSigned(true));
+    post('review', formData).finally(() => setSigned(true));
   };
 
   const onChange = (e) => {

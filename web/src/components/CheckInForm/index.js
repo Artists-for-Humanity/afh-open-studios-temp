@@ -4,6 +4,7 @@ import { If, Then, Else } from 'react-if';
 import isEmpty from 'lodash.isempty';
 import axios from 'axios';
 
+import { post } from '../../api';
 import { RichText } from '@components';
 import s from './styles.module.scss';
 
@@ -28,9 +29,10 @@ const CheckInForm = ({
     e.preventDefault();
 
     if (['first_name', 'last_name'].every((key) => !isEmpty(formData[key]))) {
-      axios.post('/api/visitor', formData).then(() => {
-        window.localStorage.setItem('lastVisit', new Date().toISOString());
+      const date = new Date().toISOString();
 
+      post('visitorRecord', { date_time: date, ...formData }).finally(() => {
+        window.localStorage.setItem('lastVisit', new Date().toISOString());
         router.replace('/introduction');
       });
     }
