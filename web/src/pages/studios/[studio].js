@@ -52,6 +52,7 @@ const StudioSidebarController = ({
       heading={index + 1}
       title={content.title}
       description={content.description}
+      hideInstructions={hideInstructions}
     >
       <If condition={!isEmpty(prompts)}>
         <ul className={s.prompts}>
