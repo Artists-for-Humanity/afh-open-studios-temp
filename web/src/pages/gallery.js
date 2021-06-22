@@ -17,7 +17,7 @@ const Gallery = ({ navigation, gallery }) => {
     <TourWrapper
       navigation={navigation}
       sidebar={
-        <Sidebar {...gallery} cta="End Tour" ctaHref="/end">
+        <Sidebar {...gallery} cta="End Tour" ctaHref="/guestbook">
           <If condition={audioUrl}>
             <Player width="100%" height="60px" url={audioUrl} controls />
           </If>
