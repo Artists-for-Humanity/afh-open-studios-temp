@@ -24,14 +24,12 @@ const StudiosCarousel = ({ className, images, onClose }) => {
         ))}
         <If condition={images.length > 1}>
           <nav>
-            <If condition={curImage > 0}>
-              <IconButton
-                className={s.stepper}
-                icon="fas fa-angle-left"
-                onClick={prev}
-                disabled={curImage === 0}
-              />
-            </If>
+            <IconButton
+              className={cn(s.stepper, curImage === 0 && s.inactive)}
+              icon="fas fa-angle-left"
+              onClick={prev}
+              disabled={curImage === 0}
+            />
             {images.map((_, i) => (
               <IconButton
                 className={cn(i !== curImage && s.inactive)}
@@ -40,13 +38,15 @@ const StudiosCarousel = ({ className, images, onClose }) => {
                 key={i}
               />
             ))}
-            <If condition={curImage < images.length - 1}>
-              <IconButton
-                className={s.stepper}
-                icon="fas fa-angle-right"
-                onClick={next}
-              />
-            </If>
+            <IconButton
+              className={cn(
+                s.stepper,
+                curImage === images.length - 1 && s.inactive,
+              )}
+              icon="fas fa-angle-right"
+              onClick={next}
+              disabled={curImage === images.length - 1}
+            />
           </nav>
         </If>
       </div>

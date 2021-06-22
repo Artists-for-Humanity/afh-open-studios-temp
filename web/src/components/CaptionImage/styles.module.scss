@@ -1,15 +1,13 @@
 @import 'abstracts';
 
 .container {
+  @include flex(column);
   position: relative;
 
   figcaption {
     @include padding($sp-xs);
     background-color: $blue;
-    width: fit-content;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    width: 100%;
     font-weight: bold;
   }
 }
