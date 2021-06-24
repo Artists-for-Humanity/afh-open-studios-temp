@@ -94,20 +94,36 @@ const StudioContentController = ({ content, onClose, passthrough }) => {
 
 const Studio = ({ studio, navigation }) => {
   useCheckIn();
-  const [clickedTouchpoint, setClickedTouchpoint] = useState(true);
-  const [touchpointIndex, setTouchpointIndex] = useState(null);
-  const [passthrough, setPassthrough] = useState(null);
+
   const { query } = useRouter();
+
+  // Has user clicked on a touchpoint? This
+  // is used to decide whether to hide
+  // touchpoint intstructions
+  const [clickedTouchpoint, setClickedTouchpoint] = useState(true);
+
+  // Track which touchpoint is clicked / activated
+  const [touchpointIndex, setTouchpointIndex] = useState(null);
+
+  // Passthrough is any object passed between the
+  // studio sidebar and the studio content.
+  const [passthrough, setPassthrough] = useState(null);
+
+  // Get current and next studio
   const curStudio = query.studio;
   const nextStudio = getNextStudio(curStudio, navigation.studios);
 
   const { short_title, description, scene } = studio;
+
   const curContent =
     touchpointIndex === null ? {} : scene.content[touchpointIndex];
+
   const audioUrl = get(studio, 'audio.asset.url');
 
   const onClose = () => setTouchpointIndex(null);
 
+  // Get whether user has clicked a touchpoint
+  // on this website at all.
   useEffect(() => {
     const hasClickedTouchpoint = window.localStorage.getItem(
       'hasClickedTouchpoint',
@@ -118,6 +134,11 @@ const Studio = ({ studio, navigation }) => {
     }
   }, []);
 
+  // Show studio information sidebar if no touchpoint
+  // is active.
+  //
+  // Otherwise, show the appropriate sidebar. For example,
+  // show video prompts sidebar if a videos touchpoint is active.
   const sidebar =
     touchpointIndex === null ? (
       <StudiosSidebar
