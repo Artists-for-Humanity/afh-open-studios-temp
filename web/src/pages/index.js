@@ -8,8 +8,15 @@ import s from './styles/index.module.scss';
 const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
   const isMounted = useIsMounted();
   const { logo } = siteOptions;
+
   let ctaLink = '/introduction';
 
+  /**
+   * We can check localStorage only after the component
+   * is mounted (client side).
+   *
+   * Direct to /check-in if the last visit is outdated.
+   */
   if (isMounted && isLastVisitOutdated()) {
     ctaLink = '/check-in';
   }

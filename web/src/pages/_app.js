@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import groq from 'groq';
 
 import client from '@client';
@@ -6,7 +5,10 @@ import { Footer, SEO } from '@components';
 import { GROQ } from '@utils/constants';
 import '../styles/index.scss';
 
-function App({ Component, pageProps, router, props }) {
+/**
+ * The App component uses shared Footer and SEO components.
+ */
+function App({ Component, pageProps, props }) {
   const { footer, siteOptions, navigation } = props;
   const { seo } = siteOptions;
 
