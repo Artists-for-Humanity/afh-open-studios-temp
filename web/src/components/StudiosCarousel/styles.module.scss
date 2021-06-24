@@ -1,24 +1,31 @@
 @import 'abstracts';
 
-.image {
-  width: 100%;
-
-  &.hidden {
-    display: none;
-  }
-}
-
 .carousel {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 100%;
-  max-width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  @include flex(column, center, center);
 
   nav {
     @include flex(row, center, center);
-    margin-top: $sp-xs;
+    margin-top: $sp-md;
+  }
+}
+
+.image {
+  max-height: 70%;
+  max-width: 80%;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+
+  &.hidden {
+    display: none;
   }
 }
 
