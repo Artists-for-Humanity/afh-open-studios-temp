@@ -3,6 +3,10 @@ import fetch from 'isomorphic-unfetch';
 const CURRENT_VERSION = new Date().toISOString().substring(0, 10);
 const SANITY_MUTATE_URL = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v${CURRENT_VERSION}/data/mutate/production`;
 
+/**
+ * Make a POST call to the Sanity server to
+ * create new records.
+ */
 export async function post(type, data) {
   fetch(SANITY_MUTATE_URL, {
     method: 'POST',
