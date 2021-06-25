@@ -1,0 +1,28 @@
+@import 'abstracts';
+
+.container {
+  @include site-padding;
+  @include flex(column, center, center);
+  height: 100vh;
+
+  h1 {
+    @include ff-gotham-hero;
+    margin-bottom: $sp-sm;
+  }
+
+  p {
+    a {
+      text-decoration: underline;
+
+      @include on-focus {
+        color: $green;
+      }
+    }
+
+    @include mq($bp-tablet) {
+      @include ff-gotham-title;
+      width: 40%;
+      text-align: center;
+    }
+  }
+}
