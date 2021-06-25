@@ -43,6 +43,10 @@
 
 .contact {
   @include flex;
+
+  @include mq($bp-tablet, 'max') {
+    @include flex(column);
+  }
 }
 
 .social {
@@ -94,4 +98,8 @@
 .logo {
   margin-right: $sp-xs;
   width: 150px;
+
+  @include mq($bp-tablet, 'max') {
+    margin-bottom: $sp-sm;
+  }
 }
