@@ -2,7 +2,7 @@
 
 .container {
   @include padding($sp-xs);
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @include mq($bp-monitor) {
     @include padding($sp-sm);

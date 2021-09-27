@@ -15,5 +15,5 @@
   @include flex(column, space-between);
 
   border-left: 1px solid $white;
-  overflow-y: scroll;
+  overflow-y: auto;
 }

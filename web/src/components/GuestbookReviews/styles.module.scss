@@ -2,7 +2,7 @@
 
 .container {
   @include padding($sp-sm);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .review {

@@ -9,7 +9,7 @@ $h-padding: $sp-xxs-xs;
 
   > div:first-child {
     @include site-padding;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
 
