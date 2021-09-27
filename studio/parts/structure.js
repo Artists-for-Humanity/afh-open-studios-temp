@@ -131,6 +131,13 @@ export default () =>
                 ),
             ]),
         ),
+      
+      S.listItem()
+        .title('Sponsors')
+        .icon(GrDocument)
+        .child(
+          S.editor().schemaType('sponsors').documentId('sponsors'),
+        ),
 
       S.divider(),
 
@@ -150,6 +157,7 @@ export default () =>
             'studio',
             'footer',
             'siteOptions',
+            'sponsors'
           ].includes(listItem.getId()),
       ),
     ]);

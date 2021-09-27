@@ -30,3 +30,4 @@ export { default as Image } from './Image';
 export { default as RichText } from './RichText';
 export { default as Link } from './Link';
 export { default as TourNavigation } from './TourNavigation';
+export { default as SponsorsGrid } from './SponsorsGrid';

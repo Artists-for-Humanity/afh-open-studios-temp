@@ -5,10 +5,10 @@ import { LandingHero, LandingSteps, Link } from '@components';
 import { isLastVisitOutdated, useIsMounted } from '@utils';
 import s from './styles/index.module.scss';
 
-const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
+const Index = ({ landingPage, sponsors, siteOptions }) => {
+  const { heading, background_images, cta, steps } = landingPage;
   const isMounted = useIsMounted();
   const { logo } = siteOptions;
-
   let ctaLink = '/introduction';
 
   /**
@@ -27,6 +27,7 @@ const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
         heading={heading}
         backgrounds={background_images}
         logo={logo}
+        sponsors={sponsors}
       />
       <Link className={s.cta} href={ctaLink}>
         {cta}
@@ -36,15 +37,22 @@ const Index = ({ heading, background_images, cta, steps, siteOptions }) => {
   );
 };
 
-export const getServerSideProps = async () => {
-  const payload = await client.fetch(groq`
-    *[_type == 'landingPage']{
+export const getStaticProps = async () => {
+  const payload = await client.fetch(groq`{
+    "landingPage": *[_type == 'landingPage']{
       heading,
       background_images,
       cta,
       steps
-    }[0]
-  `);
+    }[0],
+    "sponsors": *[_type == 'sponsors'][0]{
+      label,
+      sponsors[] {
+        name,
+        image
+      }
+    }
+  }`);
 
   return {
     props: payload,

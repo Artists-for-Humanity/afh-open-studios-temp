@@ -9,6 +9,7 @@
     @include ff-gotham-hero;
     color: $white;
     z-index: 1;
+    margin-top: $sp-md;
 
     @include mq($bp-desktop) {
       width: 70%;
@@ -66,4 +67,11 @@
 
     width: 200px;
   }
+}
+
+.sponsors {
+  margin-top: $sp-sm;
+  position: relative;
+  z-index: 1;
+  
 }

@@ -33,6 +33,7 @@ export default createSchema({
     require('./document/visitorRecord').default,
     require('./document/review').default,
     require('./document/guestbookPage').default,
+    require('./document/sponsors').default,
     // temples: require('./{{ type }}/{{ name }}').default,
   ]),
 });
