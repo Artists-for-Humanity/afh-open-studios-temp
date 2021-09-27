@@ -21,7 +21,7 @@
 
   @include mq($bp-tablet) {
     @include flex(column, center);
-    @include size(100vw, 100vh);
+    @include size(100%, 100vh);
     @include padding(x $sp-md);
   }
 }
