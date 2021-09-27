@@ -37,6 +37,11 @@ const CheckInForm = ({
     }
   };
 
+  const skipCheckin = () => {
+    window.localStorage.setItem('lastVisit', new Date().toISOString());
+    router.replace('/introduction');
+  }
+
   const onChange = (e) => {
     const isCheckbox = e.target.type === 'checkbox';
     const newValue = isCheckbox ? e.target.checked : e.target.value.trim();
@@ -125,9 +130,14 @@ const CheckInForm = ({
                 </label>
               </div>
             </div>
-            <button className={s.cta} type="submit">
-              {cta}
-            </button>
+            <div className={s.ctaWrapper}>
+              <button className={s.cta} type="submit">
+                {cta}
+              </button>
+              <button className={s.skipCta} type="button" onClick={skipCheckin}>
+                Skip Checkin
+              </button>
+            </div>
           </form>
         </Else>
       </If>

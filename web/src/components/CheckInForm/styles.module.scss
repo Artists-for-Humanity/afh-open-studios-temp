@@ -79,8 +79,8 @@
 }
 
 .optInNewsletter {
-  @include flex(row, flex-end);
-  align-items: center;
+  @include flex(row, flex-start, center);
+  @include margin($sp-xs x);
   padding-left: $sp-xs;
   width: 50%;
 
@@ -88,15 +88,20 @@
     @include size(20px);
     margin-right: $sp-xs;
   }
+}
 
-  label {
-    @include mq($bp-monitor) {
-      width: 50%;
-    }
-  }
+.ctaWrapper {
+  margin-top: $sp-sm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $sp-xs;
 }
 
 .cta {
   @include pill;
-  margin-top: $sp-sm;
+}
+
+.skipCta {
+  color: $gray;
 }
