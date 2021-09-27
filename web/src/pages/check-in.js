@@ -17,7 +17,7 @@ const CheckIn = ({ checkIn, navigation }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const checkIn = await client.fetch(groq`
     *[_type == 'checkInPage'][0] {
       title,

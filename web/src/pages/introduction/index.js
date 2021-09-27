@@ -23,7 +23,7 @@ const Introduction = ({ navigation, introduction }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const introduction = await client.fetch(groq`
     *[_type == 'introductionPage'][0]{
       title,

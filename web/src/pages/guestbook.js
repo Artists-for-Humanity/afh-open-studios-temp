@@ -30,7 +30,7 @@ const Guestbook = ({ navigation, guestbook }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const guestbook = await client.fetch(groq`
     *[_type == 'guestbookPage'][0] {
       title,

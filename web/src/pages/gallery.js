@@ -29,7 +29,7 @@ const Gallery = ({ navigation, gallery }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const gallery = await client.fetch(groq`
     *[_type == 'galleryPage'][0] {
       title,

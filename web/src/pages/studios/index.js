@@ -40,7 +40,7 @@ const Studios = ({ studios, allStudios, navigation }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const { studios, allStudios } = await client.fetch(groq`{
     "studios": *[_type == 'studiosPage'][0]{
       title,

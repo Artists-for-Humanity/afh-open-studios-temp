@@ -181,10 +181,10 @@ const Studio = ({ studio, navigation }) => {
   );
 };
 
-export const getServerSideProps = async ({ query }) => {
+export const getStaticProps = async ({ params }) => {
   const studio = await client.fetch(groq`
     *[_type == 'studio'
-      && slug.current == '${query.studio}'
+      && slug.current == '${params.studio}'
       && ${GROQ.EXCLUDE_DRAFTS}]{
         title,
         short_title,
@@ -214,5 +214,19 @@ export const getServerSideProps = async ({ query }) => {
     },
   };
 };
+
+export const getStaticPaths = async () => {
+  const studios = await client.fetch(groq`${GROQ.STUDIOS_LIST}`);
+  const studioPaths = studios.map(studio => ({
+    params: {
+      studio: studio.slug.current
+    }
+  }));
+
+  return {
+    paths: studioPaths,
+    fallback: false
+  };
+}
 
 export default Studio;
