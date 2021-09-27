@@ -10,7 +10,7 @@ $table-child-width: calc(100% / 3 - 2 * #{$table-gap});
 
   background-color: $river-bed;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow: auto;
 
   li {
     @include margin(x $table-gap);
