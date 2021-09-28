@@ -4,6 +4,7 @@ import { If, Then, Else } from 'react-if';
 import isEmpty from 'lodash.isempty';
 
 import { post } from '../../api';
+import * as gtag from "../../lib/gtag";
 import { RichText } from '@components';
 import s from './styles.module.scss';
 
@@ -31,6 +32,10 @@ const CheckInForm = ({
       const date = new Date().toISOString();
 
       post('visitorRecord', { date_time: date, ...formData }).finally(() => {
+        gtag.event({
+          action: 'submit_form',
+          category: 'Checkin'
+        });
         window.localStorage.setItem('lastVisit', new Date().toISOString());
         router.replace('/introduction');
       });

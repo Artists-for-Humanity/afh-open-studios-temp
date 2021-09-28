@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import Player from 'react-player';
 
+import * as gtag from "../../lib/gtag";
 import s from './styles.module.scss';
 
 const PlayIcon = React.forwardRef((props, ref) => {
@@ -25,6 +26,12 @@ const VideoPlayer = ({ className, url, thumbnail, ...props }) => {
         light={thumbnail || false}
         playing={started}
         onReady={() => setStarted(true)}
+        onPlay={() => {
+          gtag.event({
+            action: 'play',
+            category: 'Video'
+          });
+        }}
         controls
         {...props}
       />

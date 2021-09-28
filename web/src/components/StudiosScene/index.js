@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import cn from 'classnames';
 
 import { Image, TouchpointMarker } from '@components';
+import * as gtag from "../../lib/gtag";
 import s from './styles.module.scss';
 
 const StudiosScene = ({ className, scene, onSelectTouchpoint }) => {
@@ -48,7 +49,14 @@ const StudiosScene = ({ className, scene, onSelectTouchpoint }) => {
             style={{ left: `${x}%`, top: `${y}%` }}
             number={i + 1}
             key={i}
-            onClick={() => onSelectTouchpoint(i)}
+            onClick={() => {
+              onSelectTouchpoint(i);
+              gtag.event({
+                action: 'open',
+                category: 'TouchPoint',
+                label: i
+              });
+            }}
           />
         ))}
       </div>
